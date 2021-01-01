@@ -79,3 +79,46 @@ function sha_register_menus() {
 	);
 }
 add_action( 'after_setup_theme', 'sha_register_menus' );
+
+
+if ( function_exists( 'register_sidebar' ) ) {
+
+	register_sidebar(
+		array(
+			'name'          => 'フッター左',
+			'id'            => 'footer-widget-l',
+			'description'   => 'フッターの左側に来るウィジェットエリアです。',
+			'class'         => 'footer-left',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => 'フッター中央',
+			'id'            => 'footer-widget-c',
+			'description'   => 'フッターの中央に来るウィジェットエリアです。',
+			'class'         => 'footer-center',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => 'フッター右',
+			'id'            => 'footer-widget-r',
+			'description'   => 'フッターの右に来るウィジェットエリアです。',
+			'class'         => 'footer-right',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		)
+	);
+}

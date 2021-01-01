@@ -1,0 +1,10 @@
+footer {
+    background-color: $black;
+    color: $white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .lower {
+        border-top: solid $pink 1px;
+    }
+}

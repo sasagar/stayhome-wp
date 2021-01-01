@@ -20,7 +20,9 @@ get_header();
 
 ?>
 
-front-page
+<?php
+echo do_shortcode( '[slick-slider design="design-1" image_size="original" image_fit="true" autoplay="true" autoplay_interval="5000" slidestoshow="1" category="10"]' );
+?>
 
 <?php
 get_footer();

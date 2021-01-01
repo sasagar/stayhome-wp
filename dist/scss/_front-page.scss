@@ -1,0 +1,19 @@
+.wpsisac-slick-carousal {
+    .wpsisac-image-slide {
+        margin: 0;
+    }
+}
+.wpsisac-slick-slider {
+    .slick-dots {
+        li {
+            button {
+                border-color: $blue;
+            }
+            &.slick-active {
+                button {
+                    background-color: $green !important;
+                }
+            }
+        }
+    }
+}
