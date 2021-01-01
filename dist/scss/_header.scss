@@ -1,0 +1,46 @@
+header {
+    background-color: $brown;
+    color: $white;
+
+    .container {
+        justify-content: space-between;
+    }
+
+    h1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        img {
+            object-fit: contain;
+            object-position: left;
+            max-height: 50px;
+            width: 100%;
+        }
+    }
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            li {
+                border-bottom: solid $pink 3px;
+
+                & + li {
+                    margin-left: 10px;
+                }
+
+                a {
+                    color: $white;
+                    font-weight: bold;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}

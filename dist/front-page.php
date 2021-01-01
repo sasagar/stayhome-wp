@@ -1,8 +1,8 @@
 <?php
 /**
- * Footer.php
+ * Front-page.php
  *
- * Main footer.
+ * Front page template for Theme.
  *
  * @category   Components
  * @package    WordPress
@@ -16,7 +16,11 @@
 ?>
 
 <?php
-wp_footer();
+get_header();
+
 ?>
-</body>
-</html>
+
+front-page
+
+<?php
+get_footer();

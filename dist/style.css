@@ -7,4 +7,80 @@ Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 */
+body {
+  color: #222222;
+}
+
+.container {
+  width: 100%;
+}
+@media (min-width: 520px) {
+  .container {
+    width: 100%;
+  }
+}
+@media (min-width: 960px) {
+  .container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+}
+
+header {
+  background-color: #3c0000;
+  color: #ffffff;
+}
+header .container {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+header h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+header h1 img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: left;
+     object-position: left;
+  max-height: 50px;
+  width: 100%;
+}
+header .menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+header .menu ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+header .menu ul li {
+  border-bottom: solid #ffacff 3px;
+}
+header .menu ul li a {
+  color: #ffffff;
+  font-weight: bold;
+  padding: 5px;
+}
 /*# sourceMappingURL=style.css.map */
