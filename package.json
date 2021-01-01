@@ -1,0 +1,24 @@
+{
+  "name": "stayhome-wp",
+  "version": "1.0.0",
+  "description": "WP theme for Stay Home Airlines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sasagar/stayhome-wp.git"
+  },
+  "author": "SASAPIYO",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sasagar/stayhome-wp/issues"
+  },
+  "homepage": "https://github.com/sasagar/stayhome-wp#readme",
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^7.4.0",
+    "eslint": "^7.16.0",
+    "node-sass": "^5.0.0"
+  }
+}
