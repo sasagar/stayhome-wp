@@ -58,6 +58,28 @@ function sha_theme_customize_register( $wp_customize ) {
 			)
 		)
 	);
+
+	$wp_customize->add_setting(
+		'va_alliance[chk]',
+		array(
+			'default' => false,
+			'type'    => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'va_alliance',
+			array(
+				'label'       => 'VA JAPAN ロゴ表示', // 設定項目のタイトル.
+				'section'     => 'sha_theme_header_section', // 追加するセクションのID.
+				'settings'    => 'va_alliance[chk]', // 追加する設定項目のID.
+				'description' => 'Virtual Airlines Japanのロゴを表示するか選択します。', // 設定項目の説明.
+				'type'        => 'checkbox',
+			)
+		)
+	);
 }
 add_action( 'customize_register', 'sha_theme_customize_register' );
 

@@ -55,7 +55,7 @@ echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" s
 				過去に開催した社内イベントなどについてご報告します。社内の雰囲気などを感じて頂けたらと思います。
 			</p>
 			<div class="button-container">
-				<a href="#">詳しく見る</a>
+				<a href="<?php echo esc_url( home_url( '/event/' ) ); ?>">詳しく見る</a>
 			</div>
 		</li>
 		<li>

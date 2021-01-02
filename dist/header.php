@@ -15,7 +15,7 @@
 
 ?>
 <!doctype html>
-<html lang="<?php bloginfo( 'lang' ); ?>">
+<html lang="<?php bloginfo( 'language' ); ?>">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -25,18 +25,29 @@
 	<header>
 		<div class="container">
 			<h1>
+				<a href="<?php echo home_url(); ?>">
+					<?php
+					if ( sha_get_the_logo_img_url() ) {
+						echo '<img src="' . esc_url( sha_get_the_logo_img_url() ) . '" alt="' . esc_html( get_bloginfo( 'name' ) ) . '" class="mainlogo">';
+					} else {
+						bloginfo( 'name' );
+					}
+					?>
+				</a>
 				<?php
-				if ( sha_get_the_logo_img_url() ) {
-					echo '<img src="' . esc_url( sha_get_the_logo_img_url() ) . '" alt="' . esc_html( get_bloginfo( 'name' ) ) . '">';
-				} else {
-					bloginfo( 'name' );
+				$flag = get_option( 'va_alliance' );
+				if ( $flag['chk'] ) {
+					echo '<div class="vaj-logo">';
+					echo '<img src="' . esc_url( get_template_directory_uri() ) . '/images/VA-JPN.svg" alt="A member of Virtual Airlines Japan" class="vaj-logo-img">';
+					echo '</div>';
 				}
 				?>
 			</h1>
 			<?php
 			wp_nav_menu(
 				array(
-					'theme_location' => 'main-menu',
+					'theme_location'  => 'global',
+					'container_class' => 'menu-global-container',
 				)
 			);
 			?>
