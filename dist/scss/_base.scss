@@ -1,13 +1,22 @@
+@mixin fontsize ($px) {
+    font-size: $px + px;
+    font-size: $px / 16 * 1rem;
+}
+
+$min-tablet: "min-width: 520px";
+$min-pc: "min-width: 960px";
+
 body {
     color: $black;
+    font-family: "M PLUS 1p";
 }
 
 .container {
     width: 100%;
-    @media (min-width: 520px) {
+    @media ($min-tablet) {
         width: 100%;
     }
-    @media (min-width: 960px) {
+    @media ($min-pc) {
         max-width: 960px;
         margin-left: auto;
         margin-right: auto;

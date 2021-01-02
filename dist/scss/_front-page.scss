@@ -3,15 +3,119 @@
         margin: 0;
     }
 }
-.wpsisac-slick-slider {
+.wpsisac-slick-carousal {
     .slick-dots {
         li {
             button {
-                border-color: $blue;
+                border-color: darken($color: $pink, $amount: 5%);
             }
             &.slick-active {
                 button {
-                    background-color: $green !important;
+                    background-color: $pink !important;
+                }
+            }
+        }
+    }
+}
+
+.wpsisac-image-fit {
+    .wpsisac-image-slide-wrap,
+    .wpsisac-slide-wrap {
+        img {
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
+
+.slick-container {
+    padding: 10px 0;
+    background-color: $blue;
+}
+
+.front-about {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    h2 {
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+
+        &::after {
+            display: block;
+            content: '';
+            width: 50px;
+            border-bottom: solid $green 1px;
+            margin: 20px auto;
+        }
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        flex-wrap: wrap;
+        margin: 0 10px;
+
+        @media ($min-tablet) {
+            flex-wrap: nowrap;
+            margin: 0;
+        }
+
+        li {
+            flex-basis: calc(50% - 5px);
+            padding: 15px;
+            border-radius: 5px;
+            border: solid $blue 1px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color .5s ease-in-out;
+            margin-bottom: 10px;
+
+            @media ($min-tablet) {
+                flex-basis: calc((100% - 30px) / 4);
+            }
+
+            &:hover {
+                border-color: $pink;
+            }
+
+            h3 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            p {
+                text-align: justify;
+                font-weight: lighter;
+                @include fontsize(12);
+            }
+
+            .button-container {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+
+                a {
+                    display: block;
+                    margin: 15px auto 0;
+                    padding: 5px;
+                    background-color: $blue;
+                    color: $brown;
+                    text-decoration: none;
+                    width: 100px;
+                    border-radius: 20px;
+                    text-align: center;
+                    @include fontsize(12);
+                    transition: background-color .5s ease-in-out, color .5s ease-in-out;
+
+                    &:hover {
+                        background-color: $green;
+                        color: $white;
+                    }
                 }
             }
         }

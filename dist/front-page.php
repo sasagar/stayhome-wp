@@ -20,9 +20,55 @@ get_header();
 
 ?>
 
+<div class="slick-container">
 <?php
-echo do_shortcode( '[slick-slider design="design-1" image_size="original" image_fit="true" autoplay="true" autoplay_interval="5000" slidestoshow="1" category="10"]' );
+echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" slidestoshow="3" category="10" image_fit="true" sliderheight="300" autoplay="true" autoplay_interval="5000" speed="1000"]' );
 ?>
+</div>
+
+<div class="container front-about">
+	<h2>
+		Stay Home Airlinesについて
+	</h2>
+	<ul>
+		<li>
+			<h3>About us</h3>
+			<p>
+				フライトシミュレーターにおけるヴァーチャルエアラインや私たちStay Home Airlinesについてご紹介します。
+			</p>
+			<div class="button-container">
+				<a href="#">詳しく見る</a>
+			</div>
+		</li>
+		<li>
+			<h3>Divisions</h3>
+			<p>
+				Stay Home Airlinesでは、社員それぞれのスキルアップを目指すため部門を分けています。各部門をご紹介します。
+			</p>
+			<div class="button-container">
+				<a href="#">詳しく見る</a>
+			</div>
+		</li>
+		<li>
+			<h3>Events</h3>
+			<p>
+				過去に開催した社内イベントなどについてご報告します。社内の雰囲気などを感じて頂けたらと思います。
+			</p>
+			<div class="button-container">
+				<a href="#">詳しく見る</a>
+			</div>
+		</li>
+		<li>
+			<h3>Recruit</h3>
+			<p>
+				Stay Home Airlinesはフライトシミュレーターのスキルアップを目指す皆さんを募集しています。
+			</p>
+			<div class="button-container">
+				<a href="#">詳しく見る</a>
+			</div>
+		</li>
+	</ul>
+</div>
 
 <?php
 get_footer();
