@@ -25,7 +25,7 @@
 	<header>
 		<div class="container">
 			<h1>
-				<a href="<?php echo home_url(); ?>">
+				<a href="<?php echo esc_url( home_url() ); ?>">
 					<?php
 					if ( sha_get_the_logo_img_url() ) {
 						echo '<img src="' . esc_url( sha_get_the_logo_img_url() ) . '" alt="' . esc_html( get_bloginfo( 'name' ) ) . '" class="mainlogo">';
