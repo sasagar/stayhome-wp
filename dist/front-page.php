@@ -33,22 +33,29 @@ echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" s
 		</h2>
 		<div id="newsticker">
 			<ul>
-				<li>
-					<time>2020-01-01</time>
-					<a href='#'>タイトルがここに入ります。</a>
-				</li>
-				<li>
-					<time>2020-01-02</time>
-					<a href='#'>タイトルがここに入ります。</a>
-				</li>
-				<li>
-					<time>2020-01-03</time>
-					<a href='#'>タイトルがここに入ります。</a>
-				</li>
-				<li>
-					<time>2020-01-04</time>
-					<a href='#'>タイトルがここに入ります。</a>
-				</li>
+				<?php
+				$args = array(
+					'post_type'      => 'news',
+					'posts_per_page' => 4,
+				);
+
+				$news_query = new WP_Query( $args );
+
+				if ( $news_query->have_posts() ) {
+					while ( $news_query->have_posts() ) {
+						$news_query->the_post();
+						echo '<li>';
+						the_date( 'Y-m-d', '<time>', '</time>' );
+						echo '<a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a>';
+						echo '</li>';
+					}
+				} else {
+					echo '<li>';
+					echo '<a href="#">Coming sooon.</a>';
+					echo '</li>';
+				}
+				wp_reset_postdata();
+				?>
 			</ul>
 		</div>
 	</div>
@@ -107,5 +114,144 @@ jQuery(function() {
 	</ul>
 </div>
 
+<div class="front-blog-container">
+	<div class="container front-blog">
+		<h2>
+			ブログ
+		</h2>
+
+		<ul>
+		<?php
+
+		$args = array(
+			'post_type'      => 'post',
+			'posts_per_page' => 4,
+		);
+
+		$blog_query = new WP_Query( $args );
+
+		if ( $blog_query->have_posts() ) {
+			while ( $blog_query->have_posts() ) {
+				$blog_query->the_post();
+				?>
+			<li>
+				<h3><?php the_title(); ?></h3>
+				<p>
+					<?php the_excerpt(); ?>
+				</p>
+				<div class="button-container">
+					<a href="<?php the_permalink(); ?>">続きを読む</a>
+				</div>
+			</li>
+
+				<?php
+			}
+
+			$blog_count = $blog_query->post_count;
+			if ( 4 > $blog_count ) {
+				while ( 4 > $blog_count ) {
+					$blog_count++;
+					?>
+					<li>
+						<h3>Coming Soon</h3>
+						<p>
+							他のブログ公開までお待ちください！
+						</p>
+					</li>
+					<?php
+				}
+			}
+		} else {
+			$blog_count = 0;
+			if ( 4 > $blog_count ) {
+				while ( 4 > $blog_count ) {
+					$blog_count++;
+					?>
+					<li>
+						<h3>Coming Soon</h3>
+						<p>
+							他のブログ公開までお待ちください！
+						</p>
+					</li>
+					<?php
+				}
+			}
+		}
+
+		wp_reset_postdata();
+		?>
+		</ul>
+	</div>
+</div>
+
+<div class="front-event-container">
+	<div class="container front-event">
+		<h2>
+			イベント
+		</h2>
+
+		<ul>
+		<?php
+
+		$args = array(
+			'post_type'      => 'event',
+			'posts_per_page' => 4,
+		);
+
+		$event_query = new WP_Query( $args );
+
+		if ( $event_query->have_posts() ) {
+			while ( $event_query->have_posts() ) {
+				$event_query->the_post();
+				?>
+			<li>
+				<h3><?php the_title(); ?></h3>
+				<p>
+					<?php the_excerpt(); ?>
+				</p>
+				<div class="button-container">
+					<a href="<?php the_permalink(); ?>">続きを読む</a>
+				</div>
+			</li>
+
+				<?php
+			}
+
+			$blog_count = $blog_query->post_count;
+			if ( 4 > $blog_count ) {
+				while ( 4 > $blog_count ) {
+					$blog_count++;
+					?>
+					<li>
+						<h3>Coming Soon</h3>
+						<p>
+							他のイベント情報・報告の公開までお待ちください！
+						</p>
+					</li>
+					<?php
+				}
+			}
+		} else {
+			$blog_count = 0;
+			if ( 4 > $blog_count ) {
+				while ( 4 > $blog_count ) {
+					$blog_count++;
+					?>
+					<li>
+						<h3>Coming Soon</h3>
+						<p>
+							他のイベント情報・報告までお待ちください！
+						</p>
+					</li>
+					<?php
+				}
+			}
+		}
+
+		wp_reset_postdata();
+		?>
+		</ul>
+	</div>
+</div>
 <?php
 get_footer();

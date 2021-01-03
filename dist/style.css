@@ -221,23 +221,23 @@ footer .lower {
   color: #c2ffff;
 }
 
-.front-about {
+.front-about, .front-event-container .front-event, .front-blog-container .front-blog {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.front-about h2 {
+.front-about h2, .front-event-container .front-event h2, .front-blog-container .front-blog h2 {
   font-weight: bold;
   width: 100%;
   text-align: center;
 }
-.front-about h2::after {
+.front-about h2::after, .front-event-container .front-event h2::after, .front-blog-container .front-blog h2::after {
   display: block;
   content: "";
   width: 50px;
   border-bottom: solid #008664 1px;
   margin: 20px auto;
 }
-.front-about ul {
+.front-about ul, .front-event-container .front-event ul, .front-blog-container .front-blog ul {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -254,14 +254,14 @@ footer .lower {
   margin: 0 10px;
 }
 @media (min-width: 520px) {
-  .front-about ul {
+  .front-about ul, .front-event-container .front-event ul, .front-blog-container .front-blog ul {
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
     margin: 0;
   }
 }
-.front-about ul li {
+.front-about ul li, .front-event-container .front-event ul li, .front-blog-container .front-blog ul li {
   -webkit-flex-basis: calc(50% - 5px);
       -ms-flex-preferred-size: calc(50% - 5px);
           flex-basis: calc(50% - 5px);
@@ -282,26 +282,26 @@ footer .lower {
   margin-bottom: 10px;
 }
 @media (min-width: 520px) {
-  .front-about ul li {
+  .front-about ul li, .front-event-container .front-event ul li, .front-blog-container .front-blog ul li {
     -webkit-flex-basis: calc((100% - 30px) / 4);
         -ms-flex-preferred-size: calc((100% - 30px) / 4);
             flex-basis: calc((100% - 30px) / 4);
   }
 }
-.front-about ul li:hover {
+.front-about ul li:hover, .front-event-container .front-event ul li:hover, .front-blog-container .front-blog ul li:hover {
   border-color: #ffacff;
 }
-.front-about ul li h3 {
+.front-about ul li h3, .front-event-container .front-event ul li h3, .front-blog-container .front-blog ul li h3 {
   text-align: center;
   margin-bottom: 10px;
 }
-.front-about ul li p {
+.front-about ul li p, .front-event-container .front-event ul li p, .front-blog-container .front-blog ul li p {
   text-align: justify;
   font-weight: lighter;
   font-size: 12px;
   font-size: 0.75rem;
 }
-.front-about ul li .button-container {
+.front-about ul li .button-container, .front-event-container .front-event ul li .button-container, .front-blog-container .front-blog ul li .button-container {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
@@ -320,7 +320,7 @@ footer .lower {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.front-about ul li .button-container a {
+.front-about ul li .button-container a, .front-event-container .front-event ul li .button-container a, .front-blog-container .front-blog ul li .button-container a {
   display: block;
   margin: 15px auto 0;
   padding: 5px;
@@ -329,14 +329,48 @@ footer .lower {
   text-decoration: none;
   width: 100px;
   border-radius: 20px;
+  border: solid #8fffff 1px;
   text-align: center;
   font-size: 12px;
   font-size: 0.75rem;
   -webkit-transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
-.front-about ul li .button-container a:hover {
+.front-about ul li .button-container a:hover, .front-event-container .front-event ul li .button-container a:hover, .front-blog-container .front-blog ul li .button-container a:hover {
   background-color: #008664;
   color: #ffffff;
+}
+
+.front-blog-container {
+  background-color: #c2ffff;
+}
+.front-blog-container .front-blog h2 {
+  color: #3c0000;
+}
+.front-blog-container .front-blog h2::after {
+  border-color: #ffacff;
+}
+.front-blog-container .front-blog ul li {
+  border-color: #008664;
+}
+.front-blog-container .front-blog ul li .button-container a {
+  background-color: #ffffff;
+}
+
+.front-event-container {
+  background-color: #008664;
+}
+.front-event-container .front-event h2 {
+  color: #ffffff;
+}
+.front-event-container .front-event h2::after {
+  border-color: #ffacff;
+}
+.front-event-container .front-event ul li {
+  background-color: #ffffff;
+  border-color: #006d51;
+}
+.front-event-container .front-event ul li .button-container a {
+  background-color: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */

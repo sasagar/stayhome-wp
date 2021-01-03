@@ -153,6 +153,7 @@
                     text-decoration: none;
                     width: 100px;
                     border-radius: 20px;
+                    border: solid darken($blue, 10%) 1px;
                     text-align: center;
                     @include fontsize(12);
                     transition: background-color .5s ease-in-out, color .5s ease-in-out;
@@ -160,6 +161,61 @@
                     &:hover {
                         background-color: $green;
                         color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.front-blog-container {
+    background-color: $blue;
+    .front-blog {
+        @extend .front-about;
+
+        h2 {
+            color: $brown;
+
+            &::after {
+                border-color: $pink;
+            }
+        }
+
+        ul {
+            li {
+                border-color: $green;
+
+                .button-container {
+                    a {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.front-event-container {
+    background-color: $green;
+    .front-event {
+        @extend .front-about;
+
+        h2 {
+            color: $white;
+
+            &::after {
+                border-color: $pink;
+            }
+        }
+
+        ul {
+            li {
+                background-color: $white;
+                border-color: darken($green, 5%);
+
+                .button-container {
+                    a {
+                        background-color: $white;
                     }
                 }
             }
