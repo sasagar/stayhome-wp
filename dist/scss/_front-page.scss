@@ -1,8 +1,9 @@
 .wpsisac-slick-carousal {
     .wpsisac-image-slide {
-        margin: 0;
+        // margin: 0;
     }
 }
+
 .wpsisac-slick-carousal {
     .slick-dots {
         li {
@@ -31,6 +32,11 @@
 .slick-container {
     padding: 10px 0;
     background-color: $blue;
+    
+    .slick-inner-container {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
 }
 
 .ticker-container {
@@ -39,8 +45,10 @@
     padding-bottom: 10px;
 
     .container {
-        display: flex;
-        align-items: center;
+        @media ($min-tablet) {
+            display: flex;
+            align-items: center;
+        }
 
         h2 {
             @include fontsize(16);
@@ -63,10 +71,13 @@
                     }
 
                     a {
-                        margin-left: 10px;
                         color: $brown;
                         text-decoration: none;
                         transition: color .3s ease-in-out;
+                        
+                        @media ($min-tablet) {
+                            margin-left: 10px;
+                        }
 
                         &:hover {
                             color: $blue;
@@ -102,7 +113,11 @@
         list-style: none;
         padding: 0;
         flex-wrap: wrap;
-        margin: 0 10px;
+        margin: 0;
+        
+        @media ($min-tablet) {
+            margin: 0 10px;
+        }
 
         @media ($min-tablet) {
             flex-wrap: nowrap;
@@ -110,10 +125,10 @@
         }
 
         li {
-            flex-basis: calc(50% - 5px);
+            flex-basis: 100%;
             padding: 15px;
             border-radius: 5px;
-            border: solid $blue 1px;
+            border: solid darken($blue, 10%) 1px;
             display: flex;
             flex-direction: column;
             transition: border-color .5s ease-in-out;

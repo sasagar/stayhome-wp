@@ -3,7 +3,9 @@
     font-size: $px / 16 * 1rem;
 }
 
+$max-sp: "max-width: 519px";
 $min-tablet: "min-width: 520px";
+$max-tablet: "max-width: 959px";
 $min-pc: "min-width: 960px";
 
 body {
@@ -11,16 +13,58 @@ body {
     font-family: "M PLUS 1p";
 }
 
-.container {
-    width: 100%;
-    @media ($min-tablet) {
-        width: 100%;
+.hidesp {
+    @media ($max-sp) {
+        display: none !important;
     }
+}
+
+.hidetab {
+    @media ($min-tablet) and ($max-tablet) {
+        display: none !important;
+    }
+}
+
+.hidepc {
+    @media ($min-pc) {
+        display: none !important;
+    }
+}
+
+.container {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto;
+
     @media ($min-pc) {
         max-width: 960px;
         margin-left: auto;
         margin-right: auto;
         display: flex;
         flex-wrap: wrap;
+    }
+}
+
+a {
+    color: $green;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+
+    &:hover {
+        color: lighten($green, 10%);
+        text-decoration: none;
+    }
+}
+
+.content-header {
+    width: 100%;
+    overflow: hidden;
+    
+    img {
+        width: calc(100% + 20px);
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+        filter: blur(10px);
     }
 }

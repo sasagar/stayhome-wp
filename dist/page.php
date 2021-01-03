@@ -1,8 +1,8 @@
 <?php
 /**
- * Index.php
+ * Page.php
  *
- * Fall back template for Theme.
+ * Single page template for Theme.
  *
  * @category   Components
  * @package    WordPress
@@ -21,13 +21,29 @@ get_header();
 ?>
 
 <div class="content-container">
+	<div class="content-header">
+		<?php
+		if ( has_post_thumbnail() ) {
+			the_post_thumbnail();
+		} else {
+			echo '<img src="' . esc_html( get_theme_mod( 'ogp_img', false ) ) . '" alt="' . esc_html( get_the_title() ) . '">';
+		}
+		?>
+	</div>
 	<div class="container">
 		<?php
 		if ( have_posts() ) {
 			while ( have_posts() ) {
-				echo '<h1>' . esc_html( get_the_title() ) . '</h1>';
 				the_post();
+
+				echo '<h1>' . esc_html( get_the_title() ) . '</h1>';
+				echo '<div class="published-date">';
+				echo '<span>最終更新日: <time>' . esc_html( get_the_modified_date() ) . '</time></span>';
+				echo '<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
+				echo '</div>';
+				echo '<article>';
 				the_content();
+				echo '</article>';
 			}
 		} else {
 			?>

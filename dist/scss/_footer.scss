@@ -4,7 +4,137 @@ footer {
     padding-top: 10px;
     padding-bottom: 10px;
 
+    .upper {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .container {
+            margin-left: 20px;
+            margin-right: 20px;
+            width: auto;
+
+            @media ($min-tablet) {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            & > div {
+                @include fontsize(14);
+
+                @media ($min-tablet) {
+                    & + div {
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            .footer-widget-l {
+                flex: 3;
+
+                .textwidget {
+                    text-align: justify;
+                }
+            }
+
+            .footer-widget-c {
+                flex: 2;
+                margin-top: 20px;
+                
+                @media ($min-tablet) {
+                    margin-top: 0;
+                }
+
+                .footer-c {
+                    ul {
+                        list-style: none;
+                        padding: 0;
+
+                        li {
+                            border-left: solid $blue 5px;
+                            padding: 5px 10px;
+
+                            & + li {
+                                margin-top: 5px;
+                            }
+
+                            a {
+                                color: $pink;
+                                text-decoration: none;
+                                transition: color .3s ease-in-out;
+
+                                &:hover {
+                                    color: $blue;
+                                }
+                            }
+
+                            .post-date {
+                                display: block;
+                                @include fontsize(12);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .footer-widget-r {
+                flex: 2;
+                margin-top: 20px;
+                
+                @media ($min-tablet) {
+                    margin-top: 0;
+                }
+
+                .footer-r {
+                    ul {
+                        list-style: none;
+                        padding: 0;
+
+                        li {
+                            border-left: solid $blue 5px;
+                            padding: 5px 10px;
+                            & + li {
+                                margin-top: 5px;
+                            }
+                        }
+                    }
+                    a {
+                        color: $pink;
+                        text-decoration: none;
+                        transition: color .3s ease-in-out;
+
+                        &:hover {
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+
+            .widget {
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
     .lower {
         border-top: solid $pink 1px;
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        
+        .container {
+            margin-left: 20px;
+            margin-right: 20px;
+            width: auto;
+
+            @media ($min-tablet) {
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+            }
+        }
     }
 }

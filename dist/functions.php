@@ -38,6 +38,29 @@ add_action( 'wp_enqueue_scripts', 'sha_load_scripts' );
  */
 function sha_theme_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
+		'sha_theme_favicon_section',
+		array(
+			'title'    => 'Favicon設定', // 項目名.
+			'priority' => 10, // 優先順位.
+		)
+	);
+
+	$wp_customize->add_setting( 'favicon' );
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'favicon',
+			array(
+				'label'       => 'Favicon用画像', // 設定項目のタイトル.
+				'section'     => 'sha_theme_favicon_section', // 追加するセクションのID.
+				'settings'    => 'favicon', // 追加する設定項目のID.
+				'description' => 'Favicon画像を設定してください。(PNG形式 512px四方)', // 設定項目の説明.
+			)
+		)
+	);
+
+	$wp_customize->add_section(
 		'sha_theme_header_section',
 		array(
 			'title'    => 'ヘッダー設定', // 項目名.
@@ -220,12 +243,25 @@ function sha_ogp() {
 add_action( 'wp_head', 'sha_ogp' ); // headにOGPを出力.
 
 /**
+ * Favicon.
+ */
+function sha_favicon_insert() {
+	if ( get_theme_mod( 'favicon' ) ) {
+		echo '<link rel="icon" type="image/png" href="' . esc_url( get_theme_mod( 'favicon' ) ) . '">';
+		echo '<link rel="apple-touch-icon" sizes="512x512" href="' . esc_url( get_theme_mod( 'favicon' ) ) . '">';
+	}
+}
+
+add_action( 'wp_head', 'sha_favicon_insert' );
+
+/**
  * Add nav menu.
  */
 function sha_register_menus() {
 	register_nav_menus(
 		array(
 			'global'      => 'ヘッダーグローバルナビ',
+			'sp-global'   => 'SP用ヘッダーグローバルナビ',
 			'footer-menu' => 'Footer Menu',
 		)
 	);
@@ -241,7 +277,7 @@ if ( function_exists( 'register_sidebar' ) ) {
 			'id'            => 'footer-widget-l',
 			'description'   => 'フッターの左側に来るウィジェットエリアです。',
 			'class'         => 'footer-left',
-			'before_widget' => '<div class="widget">',
+			'before_widget' => '<div class="widget footer-l">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3>',
 			'after_title'   => '</h3>',
@@ -254,7 +290,7 @@ if ( function_exists( 'register_sidebar' ) ) {
 			'id'            => 'footer-widget-c',
 			'description'   => 'フッターの中央に来るウィジェットエリアです。',
 			'class'         => 'footer-center',
-			'before_widget' => '<div class="widget">',
+			'before_widget' => '<div class="widget footer-c">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3>',
 			'after_title'   => '</h3>',
@@ -267,7 +303,7 @@ if ( function_exists( 'register_sidebar' ) ) {
 			'id'            => 'footer-widget-r',
 			'description'   => 'フッターの右に来るウィジェットエリアです。',
 			'class'         => 'footer-right',
-			'before_widget' => '<div class="widget">',
+			'before_widget' => '<div class="widget footer-r">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3>',
 			'after_title'   => '</h3>',

@@ -1,0 +1,49 @@
+.content-container {
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        h1 {
+            border-left: solid $green 5px;
+            border-bottom: solid $green 2px;
+            padding-left: 10px;
+            padding-bottom: 5px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        .published-date {
+            @include fontsize(14);
+            margin-bottom: 15px;
+            color: $green;
+
+            span {
+                & + span {
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        article {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            h2 {
+                border-left: solid $pink 3px;
+                border-bottom: solid $pink 1px;
+                padding-left: 12px;
+                padding-bottom: 5px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
+            h3 {
+                border-left: solid $blue 3px;
+                border-bottom: solid $blue 1px;
+                padding-left: 12px;
+                padding-bottom: 5px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

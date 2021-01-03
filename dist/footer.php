@@ -20,13 +20,19 @@
 		<div class="container">
 		<?php
 		if ( is_active_sidebar( 'footer-widget-l' ) ) :
+			echo '<div class="footer-widget-l">';
 			dynamic_sidebar( 'footer-widget-l' );
+			echo '</div>';
 		endif;
 		if ( is_active_sidebar( 'footer-widget-c' ) ) :
+			echo '<div class="footer-widget-c">';
 			dynamic_sidebar( 'footer-widget-c' );
+			echo '</div>';
 		endif;
 		if ( is_active_sidebar( 'footer-widget-r' ) ) :
+			echo '<div class="footer-widget-r">';
 			dynamic_sidebar( 'footer-widget-r' );
+			echo '</div>';
 		endif;
 		?>
 		</div>

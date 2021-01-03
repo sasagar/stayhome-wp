@@ -24,7 +24,13 @@
 <body <?php body_class( $class ); ?>>
 	<header>
 		<div class="container">
-			<h1>
+			<?php
+			if ( is_front_page() || is_home() ) {
+				echo '<h1>';
+			} else {
+				echo '<h2>';
+			}
+			?>
 				<a href="<?php echo esc_url( home_url() ); ?>">
 					<?php
 					if ( sha_get_the_logo_img_url() ) {
@@ -42,14 +48,39 @@
 					echo '</div>';
 				}
 				?>
-			</h1>
+			<?php
+			if ( is_front_page() || is_home() ) {
+				echo '</h1>';
+			} else {
+				echo '</h2>';
+			}
+			?>
 			<?php
 			wp_nav_menu(
 				array(
 					'theme_location'  => 'global',
-					'container_class' => 'menu-global-container',
+					'container_class' => 'menu-global-container hidesp hidetab',
 				)
 			);
 			?>
+			<div class="sp-menu-global-container hidepc">
+				<div class="menu-button" id="sp-menu-toggle"></div>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location'  => 'sp-global',
+						'container_class' => 'sp-menu-global-menu',
+					)
+				);
+				?>
+			</div>
+			<script>
+				jQuery(function() {
+					jQuery('#sp-menu-toggle').click(function() {
+						jQuery(this).toggleClass('openlink');
+						jQuery(this).next('.sp-menu-global-menu').slideToggle();
+					});
+				});
+			</script>
 		</div>
 	</header>

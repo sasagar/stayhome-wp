@@ -21,9 +21,11 @@ get_header();
 ?>
 
 <div class="slick-container">
-<?php
-echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" slidestoshow="3" category="10" image_fit="true" sliderheight="300" autoplay="true" autoplay_interval="5000" speed="1000"]' );
-?>
+	<div class="slick-inner-container">
+	<?php
+	echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" slidestoshow="3" category="10" image_fit="true" sliderheight="300" autoplay="true" autoplay_interval="5000" speed="1000"]' );
+	?>
+	</div>
 </div>
 
 <div class="ticker-container">
@@ -51,7 +53,7 @@ echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" s
 					}
 				} else {
 					echo '<li>';
-					echo '<a href="#">Coming sooon.</a>';
+					echo '<a href="#">Coming soon.</a>';
 					echo '</li>';
 				}
 				wp_reset_postdata();
