@@ -26,6 +26,43 @@ echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" s
 ?>
 </div>
 
+<div class="ticker-container">
+	<div class="container">
+		<h2 class="newsheading">
+			ニュースリリース
+		</h2>
+		<div id="newsticker">
+			<ul>
+				<li>
+					<time>2020-01-01</time>
+					<a href='#'>タイトルがここに入ります。</a>
+				</li>
+				<li>
+					<time>2020-01-02</time>
+					<a href='#'>タイトルがここに入ります。</a>
+				</li>
+				<li>
+					<time>2020-01-03</time>
+					<a href='#'>タイトルがここに入ります。</a>
+				</li>
+				<li>
+					<time>2020-01-04</time>
+					<a href='#'>タイトルがここに入ります。</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+jQuery(function() {
+	jQuery('#newsticker').vTicker('init', {
+		mousePause:false,
+		pause: 5000,
+		speed: 1000
+	});
+});
+</script>
+
 <div class="container front-about">
 	<h2>
 		Stay Home Airlinesについて

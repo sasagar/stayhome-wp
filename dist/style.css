@@ -171,6 +171,56 @@ footer .lower {
   background-color: #c2ffff;
 }
 
+.ticker-container {
+  background-color: #ffacff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.ticker-container .container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ticker-container .container h2 {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #008664;
+  margin-bottom: 0;
+  margin-right: 20px;
+  font-weight: bold;
+}
+.ticker-container .container #newsticker {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.ticker-container .container #newsticker ul li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ticker-container .container #newsticker ul li time {
+  border-left: solid #c2ffff 5px;
+  padding-left: 20px;
+}
+.ticker-container .container #newsticker ul li a {
+  margin-left: 10px;
+  color: #3c0000;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+.ticker-container .container #newsticker ul li a:hover {
+  color: #c2ffff;
+}
+
 .front-about {
   padding-top: 30px;
   padding-bottom: 30px;

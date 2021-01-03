@@ -33,6 +33,51 @@
     background-color: $blue;
 }
 
+.ticker-container {
+    background-color: $pink;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .container {
+        display: flex;
+        align-items: center;
+
+        h2 {
+            @include fontsize(16);
+            color: $green;
+            margin-bottom: 0;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        #newsticker {
+            flex: 1;
+
+            ul {
+                li {
+                    display: flex;
+
+                    time {
+                        border-left: solid $blue 5px;
+                        padding-left: 20px;
+                    }
+
+                    a {
+                        margin-left: 10px;
+                        color: $brown;
+                        text-decoration: none;
+                        transition: color .3s ease-in-out;
+
+                        &:hover {
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .front-about {
     padding-top: 30px;
     padding-bottom: 30px;
