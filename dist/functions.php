@@ -310,3 +310,101 @@ if ( function_exists( 'register_sidebar' ) ) {
 		)
 	);
 }
+
+/**
+ *
+ * Plugin Name:       CF7 to Webhook - Discord Integration
+ * Description:       Format data to send a webhook to discord
+ * Version:           1.0.0
+ * Author:            Mário Valney
+ * Author URI:        https://mariovalney.com
+ * Text Domain:       cf7-to-webhook-discord-integration
+ *
+ * @param Object $args Plugin object.
+ */
+function discord_ctz_post_request_args( $args ) {
+	if ( empty( $args['body'] ) ) {
+		return $args;
+	}
+
+	$body = json_decode( $args['body'], true );
+
+	// Validate data. Add your own validation to change only this form.
+	if ( $body['checkbox-recruitagreement'] ) {
+		if ( $body['checkbox-recruitagreement'] ) {
+			$agreement = '同意する';
+		} else {
+			$agreement = '同意しない';
+		}
+
+		$discord_body = array(
+			'content' => '新規の入社申請が届きました。',
+			'embeds'  => array(
+				array(
+					'title'       => '送信内容',
+					'description' => '以下の内容で届いています。',
+					'color'       => 34404,
+					'fields'      => array(
+						array(
+							'name'  => 'ハンドルネーム',
+							'value' => $body['your-hn'],
+						),
+						array(
+							'name'  => '配信時の名前',
+							'value' => $body['your-ytname'],
+						),
+						array(
+							'name'  => 'Discordユーザー名',
+							'value' => $body['your-discordtag'],
+						),
+						array(
+							'name'  => '意気込み',
+							'value' => $body['your-message'],
+						),
+						array(
+							'name'  => '規約同意',
+							'value' => $agreement,
+						),
+					),
+				),
+			),
+		);
+	} elseif ( $body['acceptance-contact'] ) {
+		$discord_body = array(
+			'content' => 'お問い合わせが届きました。',
+			'embeds'  => array(
+				array(
+					'title'       => '送信内容',
+					'description' => '以下の内容で届いています。',
+					'color'       => 34404,
+					'fields'      => array(
+						array(
+							'name'  => 'お名前',
+							'value' => $body['your-name'],
+						),
+						array(
+							'name'  => 'メールアドレス',
+							'value' => $body['your-email'],
+						),
+						array(
+							'name'  => 'タイトル',
+							'value' => $body['your-subject'],
+						),
+						array(
+							'name'  => '本文',
+							'value' => $body['your-message'],
+						),
+					),
+				),
+			),
+		);
+	} elseif ( empty( $body ) || empty( $body['your-name'] ) || empty( $body['your-discordtag'] ) || empty( $body['your-email'] ) || empty( $body['your-message'] ) ) {
+		return $args;
+	}
+
+	$args['body'] = wp_json_encode( $discord_body );
+
+	return $args;
+}
+
+add_filter( 'ctz_post_request_args', 'discord_ctz_post_request_args' );

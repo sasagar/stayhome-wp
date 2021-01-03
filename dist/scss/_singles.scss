@@ -17,8 +17,14 @@
             color: $green;
 
             span {
+                @media ($max-sp) {
+                    display: block;
+                }
+
                 & + span {
-                    margin-left: 20px;
+                    @media ($min-tablet) {
+                        margin-left: 20px;
+                    }
                 }
             }
         }
@@ -43,6 +49,20 @@
                 padding-bottom: 5px;
                 margin-top: 20px;
                 margin-bottom: 10px;
+            }
+
+            // CF7
+            .wpcf7 {
+                @media ($max-sp) {
+                    input[type="text"],
+                    input[type="email"] {
+                        width: 100%;
+                    }
+
+                    textarea {
+                        width: 100%;
+                    }
+                }
             }
         }
     }

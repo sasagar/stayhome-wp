@@ -67,13 +67,18 @@ a:hover {
 }
 .content-header img {
   width: calc(100% + 20px);
-  height: 300px;
+  height: 180px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
   -webkit-filter: blur(10px);
           filter: blur(10px);
+}
+@media (min-width: 520px) {
+  .content-header img {
+    height: 300px;
+  }
 }
 
 header {
@@ -329,7 +334,7 @@ footer .upper .container > div {
 }
 @media (min-width: 520px) {
   footer .upper .container > div + div {
-    margin-left: 20px;
+    margin-left: 30px;
   }
 }
 footer .upper .container .footer-widget-l {
@@ -414,7 +419,7 @@ footer .upper .container .widget img {
   max-width: 100%;
 }
 footer .lower {
-  border-top: solid #ffacff 1px;
+  border-top: solid #008664 1px;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -691,8 +696,15 @@ footer .lower .container {
   margin-bottom: 15px;
   color: #008664;
 }
-.content-container .container .published-date span + span {
-  margin-left: 20px;
+@media (max-width: 519px) {
+  .content-container .container .published-date span {
+    display: block;
+  }
+}
+@media (min-width: 520px) {
+  .content-container .container .published-date span + span {
+    margin-left: 20px;
+  }
 }
 .content-container .container article {
   margin-top: 20px;
@@ -713,5 +725,14 @@ footer .lower .container {
   padding-bottom: 5px;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+@media (max-width: 519px) {
+  .content-container .container article .wpcf7 input[type=text],
+.content-container .container article .wpcf7 input[type=email] {
+    width: 100%;
+  }
+  .content-container .container article .wpcf7 textarea {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

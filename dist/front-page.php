@@ -83,7 +83,7 @@ jQuery(function() {
 				フライトシミュレーターにおけるヴァーチャルエアラインや私たちStay Home Airlinesについてご紹介します。
 			</p>
 			<div class="button-container">
-				<a href="#">詳しく見る</a>
+				<a href="/about-us/">詳しく見る</a>
 			</div>
 		</li>
 		<li>
@@ -92,7 +92,7 @@ jQuery(function() {
 				Stay Home Airlinesでは、社員それぞれのスキルアップを目指すため部門を分けています。各部門をご紹介します。
 			</p>
 			<div class="button-container">
-				<a href="#">詳しく見る</a>
+				<a href="/division/">詳しく見る</a>
 			</div>
 		</li>
 		<li>
@@ -110,7 +110,7 @@ jQuery(function() {
 				Stay Home Airlinesはフライトシミュレーターのスキルアップを目指す皆さんを募集しています。
 			</p>
 			<div class="button-container">
-				<a href="#">詳しく見る</a>
+				<a href="/recruit/">詳しく見る</a>
 			</div>
 		</li>
 	</ul>
