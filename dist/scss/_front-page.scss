@@ -183,6 +183,51 @@
     }
 }
 
+.front-logged-in-container {
+    background-color: $green;
+    color: $white;
+    position: relative;
+    overflow: hidden;
+
+    .bg-logo {
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        opacity: .1;
+    }
+    
+    .front-logged-in {
+        @extend .front-about;
+
+        h2 {
+            color: $white;
+
+            &::after {
+                border-color: $pink;
+            }
+        }
+
+        ul {
+            width: 100%;
+
+            li {
+                border-color: $blue;
+                flex-grow: 1;
+
+                .button-container {
+                    a {
+                        background-color: $blue;
+
+                        &:hover {
+                            background-color: $brown;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .front-blog-container {
     background-color: $blue;
     .front-blog {

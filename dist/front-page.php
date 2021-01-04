@@ -72,6 +72,34 @@ jQuery(function() {
 });
 </script>
 
+<?php
+if ( is_user_logged_in() ) :
+	$user         = wp_get_current_user();
+	$display_name = $user->display_name;
+	?>
+	<div class="front-logged-in-container">
+		<img class="bg-logo" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/hp-hol-ol.svg" alt="SHAロゴ" aria-hidden="true">
+		<div class="container front-logged-in">
+			<h2>
+				Welcome back, <?php echo esc_html( $display_name ); ?>!
+			</h2>
+			<ul>
+				<li>
+					<h3>社員専用フォーラム</h3>
+					<p>
+						社員用のフォーラムはこちらから入る事ができます。
+					</p>
+					<div class="button-container">
+						<a href="/forums/">フォーラムへ</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<?php
+endif;
+?>
+
 <div class="container front-about">
 	<h2>
 		Stay Home Airlinesについて

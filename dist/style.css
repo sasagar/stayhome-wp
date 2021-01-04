@@ -178,10 +178,39 @@ header h2 .vaj-logo .vaj-logo-img {
 @media (min-width: 520px) {
   header h1 .vaj-logo .vaj-logo-img,
 header h2 .vaj-logo .vaj-logo-img {
-    height: 50px;
+    width: 50px;
   }
 }
-header .menu-global-container {
+header .header-l {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+header .header-l > a {
+  display: block;
+  margin-top: 10px;
+  padding: 2px 20px;
+  border-radius: 20px;
+  color: #ffffff;
+}
+header .header-l > a.login {
+  background-color: #008664;
+}
+header .header-l .menu-global-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -195,7 +224,7 @@ header .menu-global-container {
       -ms-flex-align: end;
           align-items: flex-end;
 }
-header .menu-global-container ul {
+header .header-l .menu-global-container ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -204,28 +233,29 @@ header .menu-global-container ul {
   display: -ms-flexbox;
   display: flex;
 }
-header .menu-global-container ul li {
+header .header-l .menu-global-container ul li {
   border-bottom: solid #ffacff 5px;
   -webkit-transition: border-color 0.5s ease-in-out;
   transition: border-color 0.5s ease-in-out;
 }
-header .menu-global-container ul li:hover {
+header .header-l .menu-global-container ul li:hover {
   border-color: #008664;
 }
-header .menu-global-container ul li + li {
+header .header-l .menu-global-container ul li + li {
   margin-left: 10px;
 }
-header .menu-global-container ul li a {
+header .header-l .menu-global-container ul li a {
   color: #ffffff;
   font-weight: bold;
   padding: 5px;
   text-decoration: none;
+  margin-top: 0;
 }
-header .sp-menu-global-container {
+header .header-l .sp-menu-global-container {
   z-index: 9999;
   position: relative;
 }
-header .sp-menu-global-container .menu-button {
+header .header-l .sp-menu-global-container .menu-button {
   width: 34px;
   height: 4px;
   border-radius: 2px;
@@ -235,7 +265,7 @@ header .sp-menu-global-container .menu-button {
   -webkit-transition: width 0.5s ease-in-out, right 0.5s ease-in-out;
   transition: width 0.5s ease-in-out, right 0.5s ease-in-out;
 }
-header .sp-menu-global-container .menu-button::before {
+header .header-l .sp-menu-global-container .menu-button::before {
   display: block;
   content: "";
   width: 34px;
@@ -250,7 +280,7 @@ header .sp-menu-global-container .menu-button::before {
   transition: transform 0.5s ease-in-out, bottom 0.5s ease-in-out, right 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out, bottom 0.5s ease-in-out, right 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
 }
-header .sp-menu-global-container .menu-button::after {
+header .header-l .sp-menu-global-container .menu-button::after {
   display: block;
   content: "";
   width: 34px;
@@ -266,40 +296,60 @@ header .sp-menu-global-container .menu-button::after {
   transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, right 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, right 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
 }
-header .sp-menu-global-container .menu-button.openlink {
+header .header-l .sp-menu-global-container .menu-button.openlink {
   width: 0;
   right: 17px;
 }
-header .sp-menu-global-container .menu-button.openlink::before {
+header .header-l .sp-menu-global-container .menu-button.openlink::before {
   -webkit-transform: rotate(405deg);
           transform: rotate(405deg);
   bottom: 0;
   right: -17px;
 }
-header .sp-menu-global-container .menu-button.openlink::after {
+header .header-l .sp-menu-global-container .menu-button.openlink::after {
   -webkit-transform: rotate(-405deg);
           transform: rotate(-405deg);
   top: -10px;
   right: -17px;
 }
-header .sp-menu-global-container .sp-menu-global-menu {
+header .header-l .sp-menu-global-container .sp-menu-global-menu {
   position: absolute;
   right: 0;
   top: 30px;
   width: 250px;
   display: none;
 }
-header .sp-menu-global-container .sp-menu-global-menu ul {
+header .header-l .sp-menu-global-container .sp-menu-global-menu ul {
   list-style: none;
   border: solid #ffacff 1px;
   padding: 0;
 }
-header .sp-menu-global-container .sp-menu-global-menu ul li {
+header .header-l .sp-menu-global-container .sp-menu-global-menu ul li {
   padding: 10px;
   background-color: #ffffff;
 }
-header .sp-menu-global-container .sp-menu-global-menu ul li + li {
+header .header-l .sp-menu-global-container .sp-menu-global-menu ul li + li {
   border-top: solid #008664 1px;
+}
+
+.logged-in header .header-l .sp-menu-global-container .sp-menu-global-menu ul li.login {
+  display: none;
+}
+.logged-in header .header-l .sp-menu-global-container .sp-menu-global-menu ul li.logout {
+  background-color: #00a077;
+}
+.logged-in header .header-l .sp-menu-global-container .sp-menu-global-menu ul li.logout a {
+  color: #ffffff;
+}
+
+body:not(.logged-in) header .header-l .sp-menu-global-container .sp-menu-global-menu ul li.logout {
+  display: none;
+}
+body:not(.logged-in) header .header-l .sp-menu-global-container .sp-menu-global-menu ul li.login {
+  background-color: #00a077;
+}
+body:not(.logged-in) header .header-l .sp-menu-global-container .sp-menu-global-menu ul li.login a {
+  color: #ffffff;
 }
 
 footer {
@@ -533,23 +583,23 @@ footer .lower .container {
   color: #c2ffff;
 }
 
-.front-about, .front-event-container .front-event, .front-blog-container .front-blog {
+.front-about, .front-event-container .front-event, .front-blog-container .front-blog, .front-logged-in-container .front-logged-in {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.front-about h2, .front-event-container .front-event h2, .front-blog-container .front-blog h2 {
+.front-about h2, .front-event-container .front-event h2, .front-blog-container .front-blog h2, .front-logged-in-container .front-logged-in h2 {
   font-weight: bold;
   width: 100%;
   text-align: center;
 }
-.front-about h2::after, .front-event-container .front-event h2::after, .front-blog-container .front-blog h2::after {
+.front-about h2::after, .front-event-container .front-event h2::after, .front-blog-container .front-blog h2::after, .front-logged-in-container .front-logged-in h2::after {
   display: block;
   content: "";
   width: 50px;
   border-bottom: solid #008664 1px;
   margin: 20px auto;
 }
-.front-about ul, .front-event-container .front-event ul, .front-blog-container .front-blog ul {
+.front-about ul, .front-event-container .front-event ul, .front-blog-container .front-blog ul, .front-logged-in-container .front-logged-in ul {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -566,19 +616,19 @@ footer .lower .container {
   margin: 0;
 }
 @media (min-width: 520px) {
-  .front-about ul, .front-event-container .front-event ul, .front-blog-container .front-blog ul {
+  .front-about ul, .front-event-container .front-event ul, .front-blog-container .front-blog ul, .front-logged-in-container .front-logged-in ul {
     margin: 0 10px;
   }
 }
 @media (min-width: 520px) {
-  .front-about ul, .front-event-container .front-event ul, .front-blog-container .front-blog ul {
+  .front-about ul, .front-event-container .front-event ul, .front-blog-container .front-blog ul, .front-logged-in-container .front-logged-in ul {
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
     margin: 0;
   }
 }
-.front-about ul li, .front-event-container .front-event ul li, .front-blog-container .front-blog ul li {
+.front-about ul li, .front-event-container .front-event ul li, .front-blog-container .front-blog ul li, .front-logged-in-container .front-logged-in ul li {
   -webkit-flex-basis: 100%;
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%;
@@ -599,26 +649,26 @@ footer .lower .container {
   margin-bottom: 10px;
 }
 @media (min-width: 520px) {
-  .front-about ul li, .front-event-container .front-event ul li, .front-blog-container .front-blog ul li {
+  .front-about ul li, .front-event-container .front-event ul li, .front-blog-container .front-blog ul li, .front-logged-in-container .front-logged-in ul li {
     -webkit-flex-basis: calc((100% - 30px) / 4);
         -ms-flex-preferred-size: calc((100% - 30px) / 4);
             flex-basis: calc((100% - 30px) / 4);
   }
 }
-.front-about ul li:hover, .front-event-container .front-event ul li:hover, .front-blog-container .front-blog ul li:hover {
+.front-about ul li:hover, .front-event-container .front-event ul li:hover, .front-blog-container .front-blog ul li:hover, .front-logged-in-container .front-logged-in ul li:hover {
   border-color: #ffacff;
 }
-.front-about ul li h3, .front-event-container .front-event ul li h3, .front-blog-container .front-blog ul li h3 {
+.front-about ul li h3, .front-event-container .front-event ul li h3, .front-blog-container .front-blog ul li h3, .front-logged-in-container .front-logged-in ul li h3 {
   text-align: center;
   margin-bottom: 10px;
 }
-.front-about ul li p, .front-event-container .front-event ul li p, .front-blog-container .front-blog ul li p {
+.front-about ul li p, .front-event-container .front-event ul li p, .front-blog-container .front-blog ul li p, .front-logged-in-container .front-logged-in ul li p {
   text-align: justify;
   font-weight: lighter;
   font-size: 12px;
   font-size: 0.75rem;
 }
-.front-about ul li .button-container, .front-event-container .front-event ul li .button-container, .front-blog-container .front-blog ul li .button-container {
+.front-about ul li .button-container, .front-event-container .front-event ul li .button-container, .front-blog-container .front-blog ul li .button-container, .front-logged-in-container .front-logged-in ul li .button-container {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
@@ -637,7 +687,7 @@ footer .lower .container {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.front-about ul li .button-container a, .front-event-container .front-event ul li .button-container a, .front-blog-container .front-blog ul li .button-container a {
+.front-about ul li .button-container a, .front-event-container .front-event ul li .button-container a, .front-blog-container .front-blog ul li .button-container a, .front-logged-in-container .front-logged-in ul li .button-container a {
   display: block;
   margin: 15px auto 0;
   padding: 5px;
@@ -653,9 +703,44 @@ footer .lower .container {
   -webkit-transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
-.front-about ul li .button-container a:hover, .front-event-container .front-event ul li .button-container a:hover, .front-blog-container .front-blog ul li .button-container a:hover {
+.front-about ul li .button-container a:hover, .front-event-container .front-event ul li .button-container a:hover, .front-blog-container .front-blog ul li .button-container a:hover, .front-logged-in-container .front-logged-in ul li .button-container a:hover {
   background-color: #008664;
   color: #ffffff;
+}
+
+.front-logged-in-container {
+  background-color: #008664;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+.front-logged-in-container .bg-logo {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  opacity: 0.1;
+}
+.front-logged-in-container .front-logged-in h2 {
+  color: #ffffff;
+}
+.front-logged-in-container .front-logged-in h2::after {
+  border-color: #ffacff;
+}
+.front-logged-in-container .front-logged-in ul {
+  width: 100%;
+}
+.front-logged-in-container .front-logged-in ul li {
+  border-color: #c2ffff;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.front-logged-in-container .front-logged-in ul li .button-container a {
+  background-color: #c2ffff;
+}
+.front-logged-in-container .front-logged-in ul li .button-container a:hover {
+  background-color: #3c0000;
 }
 
 .front-blog-container {

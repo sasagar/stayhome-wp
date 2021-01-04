@@ -55,32 +55,45 @@
 				echo '</h2>';
 			}
 			?>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location'  => 'global',
-					'container_class' => 'menu-global-container hidesp hidetab',
-				)
-			);
-			?>
-			<div class="sp-menu-global-container hidepc">
-				<div class="menu-button" id="sp-menu-toggle"></div>
+			<div class="header-l">
+				<?php
+				if ( is_user_logged_in() ) {
+					?>
+					<a href="<?php echo esc_url( home_url( '/logout/' ) ); ?>" class="login hidesp hidetab">ログアウト</a>
+					<?php
+				} else {
+					?>
+					<a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="login hidesp hidetab">社員ログイン</a>
+					<?php
+				}
+				?>
 				<?php
 				wp_nav_menu(
 					array(
-						'theme_location'  => 'sp-global',
-						'container_class' => 'sp-menu-global-menu',
+						'theme_location'  => 'global',
+						'container_class' => 'menu-global-container hidesp hidetab',
 					)
 				);
 				?>
-			</div>
-			<script>
-				jQuery(function() {
-					jQuery('#sp-menu-toggle').click(function() {
-						jQuery(this).toggleClass('openlink');
-						jQuery(this).next('.sp-menu-global-menu').slideToggle();
+				<div class="sp-menu-global-container hidepc">
+					<div class="menu-button" id="sp-menu-toggle"></div>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location'  => 'sp-global',
+							'container_class' => 'sp-menu-global-menu',
+						)
+					);
+					?>
+				</div>
+				<script>
+					jQuery(function() {
+						jQuery('#sp-menu-toggle').click(function() {
+							jQuery(this).toggleClass('openlink');
+							jQuery(this).next('.sp-menu-global-menu').slideToggle();
+						});
 					});
-				});
-			</script>
+				</script>
+			</div>
 		</div>
 	</header>

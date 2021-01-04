@@ -421,3 +421,27 @@ add_action(
 		wp_deregister_script( 'google-recaptcha' );
 	}
 );
+
+/**
+ * Add redirection to home when login.
+ *
+ * @param String $redirect_to Redirect URL.
+ * @return String $redirect_to Redirect URL.
+ */
+function sha_login_redirect( $redirect_to ) {
+	$redirect_to = home_url( '/' );
+	return $redirect_to;
+}
+add_action( 'login_redirect', 'sha_login_redirect' );
+
+/**
+ * Add redirection to home when logout.
+ *
+ * @param String $redirect_to Redirect URL.
+ * @return String $redirect_to Redirect URL.
+ */
+function sha_logout_redirect( $redirect_to ) {
+	$redirect_to = home_url( '/' );
+	return $redirect_to;
+}
+add_action( 'logout_redirect', 'sha_logout_redirect' );
