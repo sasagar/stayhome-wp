@@ -716,9 +716,10 @@ footer .lower .container {
 }
 .front-logged-in-container .bg-logo {
   position: absolute;
-  top: -30px;
-  left: -30px;
+  top: -30%;
+  right: -70%;
   opacity: 0.1;
+  width: 100%;
 }
 .front-logged-in-container .front-logged-in h2 {
   color: #ffffff;
