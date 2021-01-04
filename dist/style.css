@@ -851,6 +851,10 @@ footer .lower .container {
   }
 }
 
+body.page-template-blog .content-container .container section h2 a {
+  color: #222222;
+}
+
 body.bbpress .published-date {
   display: none;
 }

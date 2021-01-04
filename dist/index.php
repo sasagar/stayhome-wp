@@ -25,8 +25,13 @@ get_header();
 		<?php
 		if ( have_posts() ) {
 			while ( have_posts() ) {
-				echo '<h1>' . esc_html( get_the_title() ) . '</h1>';
 				the_post();
+
+				echo '<h1>';
+				echo '<a href="' . esc_html( get_permalink() ) . '">';
+				echo esc_html( get_the_title() );
+				echo '</a>';
+				echo '</h1>';
 				the_content();
 			}
 		} else {

@@ -1,0 +1,15 @@
+body{
+    &.page-template-blog {
+        .content-container {
+            .container {
+                section {
+                    h2 {
+                        a {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

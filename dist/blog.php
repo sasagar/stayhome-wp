@@ -45,7 +45,11 @@ get_header();
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
 				echo '<section>';
-				echo '<h2>' . esc_html( get_the_title() ) . '</h2>';
+				echo '<h2>';
+				echo '<a href="' . esc_html( get_permalink() ) . '">';
+				echo esc_html( get_the_title() );
+				echo '</a>';
+				echo '</h2>';
 				echo '<div class="published-date">';
 				echo '<span>最終更新日: <time>' . esc_html( get_the_modified_date() ) . '</time></span>';
 				echo '<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
