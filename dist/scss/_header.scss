@@ -48,10 +48,14 @@ header {
                 margin: 0 10px 0 20px;
                 border-left: solid $white 1px;
                 height: 35px;
+                
+                @media ($min-tablet) {
+                    height: 25px;
+                }
             }
             
             .vaj-logo-img {
-                height: 35px;
+                width: 35px;
 
                 @media ($min-tablet) {
                     height: 50px;

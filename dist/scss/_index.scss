@@ -3,3 +3,12 @@
         display: block;
     }
 }
+
+.wp-block-separator {
+    width: 50px;
+    border: none;
+    background-color: $green;
+    height: 1px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

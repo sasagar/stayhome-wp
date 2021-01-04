@@ -51,6 +51,12 @@
                 margin-bottom: 10px;
             }
 
+            .wp-block-media-text__media {
+                img {
+                    height: auto;
+                }
+            }
+
             // CF7
             .wpcf7 {
                 @media ($max-sp) {

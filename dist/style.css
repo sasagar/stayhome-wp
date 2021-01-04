@@ -165,9 +165,15 @@ header h2 .vaj-logo::before {
   border-left: solid #ffffff 1px;
   height: 35px;
 }
+@media (min-width: 520px) {
+  header h1 .vaj-logo::before,
+header h2 .vaj-logo::before {
+    height: 25px;
+  }
+}
 header h1 .vaj-logo .vaj-logo-img,
 header h2 .vaj-logo .vaj-logo-img {
-  height: 35px;
+  width: 35px;
 }
 @media (min-width: 520px) {
   header h1 .vaj-logo .vaj-logo-img,
@@ -436,6 +442,17 @@ footer .lower .container {
   }
 }
 
+.form-req span::after {
+  display: inline;
+  content: "*";
+  color: #ff6666;
+}
+
+.form-description {
+  font-size: 12px;
+  font-size: 0.75rem;
+}
+
 .wpsisac-slick-carousal .slick-dots li button {
   border-color: #ff93ff;
 }
@@ -678,6 +695,15 @@ footer .lower .container {
   display: block;
 }
 
+.wp-block-separator {
+  width: 50px;
+  border: none;
+  background-color: #008664;
+  height: 1px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .content-container .container {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -725,6 +751,9 @@ footer .lower .container {
   padding-bottom: 5px;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+.content-container .container article .wp-block-media-text__media img {
+  height: auto;
 }
 @media (max-width: 519px) {
   .content-container .container article .wpcf7 input[type=text],

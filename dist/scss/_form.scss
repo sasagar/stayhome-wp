@@ -1,0 +1,13 @@
+.form-req {
+    span {
+        &::after {
+            display: inline;
+            content: '*';
+            color: $red;
+        }
+    }
+}
+
+.form-description {
+    @include fontsize(12);
+}

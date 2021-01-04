@@ -408,3 +408,16 @@ function discord_ctz_post_request_args( $args ) {
 }
 
 add_filter( 'ctz_post_request_args', 'discord_ctz_post_request_args' );
+
+/**
+ * Remove reCaptcha from except some pages.
+ */
+add_action(
+	'wp_enqueue_scripts',
+	function() {
+		if ( is_page( array( 'contact', 'recruit' ) ) ) {
+			return;
+		}
+		wp_deregister_script( 'google-recaptcha' );
+	}
+);
