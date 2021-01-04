@@ -764,4 +764,8 @@ footer .lower .container {
     width: 100%;
   }
 }
+
+body.bbpress .published-date {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */
