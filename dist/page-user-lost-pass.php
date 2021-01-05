@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template Name: bbPress - User Lost Password
  *
@@ -7,37 +6,45 @@
  * @subpackage Theme
  */
 
-// No logged in users
+// No logged in users.
 bbp_logged_in_redirect();
 
-// Begin Template
+// Begin Template.
 get_header(); ?>
 
-	<?php do_action( 'bbp_before_main_content' ); ?>
+<div class="content-container">
+<?php get_template_part( 'forum', 'header' ); ?>
+	<div class="container">
+		<?php do_action( 'bbp_before_main_content' ); ?>
 
-	<?php do_action( 'bbp_template_notices' ); ?>
+		<?php do_action( 'bbp_template_notices' ); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			?>
 
-		<div id="bbp-lost-pass" class="bbp-lost-pass">
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-			<div class="entry-content">
+			<div id="bbp-lost-pass" class="bbp-lost-pass">
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<div class="entry-content">
 
-				<?php the_content(); ?>
+					<?php the_content(); ?>
 
-				<div id="bbpress-forums" class="bbpress-wrapper">
+					<div id="bbpress-forums" class="bbpress-wrapper">
 
-					<?php bbp_breadcrumb(); ?>
+						<?php bbp_breadcrumb(); ?>
 
-					<?php bbp_get_template_part( 'form', 'user-lost-pass' ); ?>
+						<?php bbp_get_template_part( 'form', 'user-lost-pass' ); ?>
 
+					</div>
 				</div>
-			</div>
-		</div><!-- #bbp-lost-pass -->
+			</div><!-- #bbp-lost-pass -->
 
-	<?php endwhile; ?>
+		<?php endwhile; ?>
 
-	<?php do_action( 'bbp_after_main_content' ); ?>
+		<?php do_action( 'bbp_after_main_content' ); ?>
+	</div>
+</div>
 
-<?php get_sidebar(); ?>
-<?php get_footer();
+<?php
+get_footer();
