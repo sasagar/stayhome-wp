@@ -29,19 +29,30 @@ get_header();
 	<div class="container">
 		<?php
 		if ( have_posts() ) {
+			echo '<article>';
+			echo '<h1>' . esc_html( sha_get_archive_title() ) . '</h1>';
 			while ( have_posts() ) {
 				the_post();
 
-				echo '<h1>';
+				echo '<section>';
+				echo '<h2>';
 				echo '<a href="' . esc_html( get_permalink() ) . '">';
 				echo esc_html( get_the_title() );
 				echo '</a>';
-				echo '</h1>';
+				echo '</h2>';
+				echo '<div class="article-meta-section-upper">';
+				echo '<div class="published-date">';
+				echo '<span>最終更新日: <time>' . esc_html( get_the_modified_date() ) . '</time></span>';
+				echo '<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
+				echo '</div>';
+				echo '</div>';
 				the_excerpt();
+				echo '</section>';
 			}
+			echo '</article>';
 
 			if ( function_exists( 'wp_pagenavi' ) ) {
-				wp_pagenavi( array( 'query' => $the_query ) );
+				wp_pagenavi();
 			}
 		} else {
 			?>

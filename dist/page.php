@@ -37,10 +37,13 @@ get_header();
 				the_post();
 
 				echo '<h1>' . esc_html( get_the_title() ) . '</h1>';
-				echo '<div class="published-date">';
-				echo '<span>最終更新日: <time>' . esc_html( get_the_modified_date() ) . '</time></span>';
-				echo '<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
+				echo '<div class="article-meta-section-upper">';
+				echo '	<div class="published-date">';
+				echo '		<span>最終更新日: <time>' . esc_html( get_the_modified_date() ) . '</time></span>';
+				echo '		<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
+				echo '	</div>';
 				echo '</div>';
+
 				echo '<article>';
 				the_content();
 				echo '</article>';

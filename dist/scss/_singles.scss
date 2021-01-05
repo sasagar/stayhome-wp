@@ -11,19 +11,80 @@
             margin-top: 20px;
             margin-bottom: 5px;
         }
-        .published-date {
+        .article-meta-section-upper {
             @include fontsize(14);
             margin-bottom: 15px;
-            color: $green;
 
-            span {
-                @media ($max-sp) {
-                    display: block;
-                }
+            @media ($min-tablet) {
+                display: flex;
+                flex-wrap: wrap;
 
-                & + span {
-                    @media ($min-tablet) {
+                div {
+                    & + div {
                         margin-left: 20px;
+                    }
+                }
+            }
+
+            .published-date {
+                color: $green;
+
+                span {
+                    @media ($max-sp) {
+                        display: block;
+                    }
+
+                    & + span {
+                        @media ($min-tablet) {
+                            margin-left: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .article-meta-section-lower {
+            margin-bottom: 15px;
+            @include fontsize(14);
+
+            .categories {
+                margin-bottom : 10px;
+                span {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    margin: 0;
+                    color: $green;
+                    background: lighten($green, 50%);
+                    border-top: solid 10px $green;
+                    
+                    & + span {
+                        margin-left: 10px;
+                    }
+                }
+            }
+
+            .tags {
+                span {
+                    & + span {
+                        margin-left: 10px;
+                    }
+
+                    a {
+                        display: inline-block;
+                        margin: 0 .1em .6em 0;
+                        padding: .3em;
+                        line-height: 1;
+                        color: #fff;
+                        text-decoration: none;
+                        background-color: darken($blue, 50%);
+                        border-radius: 2em 0 0 2em;
+
+                    }
+                    a::before {
+                        content: '●';
+                        margin-right: .3em;
+                        color: #fff;
+                        @include fontsize(12);
                     }
                 }
             }
@@ -70,6 +131,10 @@
                     }
                 }
             }
+        }
+
+        .comment-respond {
+            margin-top: 50px;
         }
     }
 }

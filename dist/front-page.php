@@ -93,6 +93,21 @@ if ( is_user_logged_in() ) :
 						<a href="/forums/">フォーラムへ</a>
 					</div>
 				</li>
+				<li>
+					<h3>マイページ</h3>
+					<p>
+						フォーラムのマイページはこちらから入る事ができます。
+					</p>
+					<div class="button-container">
+					<?php
+					$user    = wp_get_current_user();
+					$user_id = $user->user_nicename;
+					?>
+					<a href="<?php echo esc_url( home_url( '/forums/users/' . $user_id ) ); ?>">
+					マイページ	
+					</a>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</div>
