@@ -32,9 +32,15 @@
 			echo esc_html( get_the_title() );
 			echo '</a>';
 			echo '</h2>';
-			echo '<div class="published-date">';
-			echo '<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
+
+			echo '<div class="article-meta-section-upper">';
+
+			echo '	<div class="published-date">';
+			echo '		<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
+			echo '	</div>';
+
 			echo '</div>';
+
 			the_excerpt();
 			echo '</section>';
 		}

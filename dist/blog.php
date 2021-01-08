@@ -49,36 +49,40 @@ get_header();
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
 				echo '<section>';
+
 				echo '<h2>';
 				echo '<a href="' . esc_html( get_permalink() ) . '">';
 				echo esc_html( get_the_title() );
 				echo '</a>';
 				echo '</h2>';
+
 				echo '<div class="article-meta-section-upper">';
+
 				echo '	<div class="author">投稿者: ';
 				the_author();
 				echo '	</div>';
+
 				echo '	<div class="published-date">';
 				echo '		<span>最終更新日: <time>' . esc_html( get_the_modified_date() ) . '</time></span>';
 				echo '		<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
 				echo '	</div>';
+
 				echo '</div>';
+
 				echo '<div class="article-meta-section-lower">';
+
 				echo '	<div class="categories">';
 				echo '		<span>';
 				the_category( '</span><span>' );
 				echo '		</span>';
 				echo '	</div>';
-				the_tags( '<div class="tags"><span>', '</span><span>', '</span></div>' );
-				echo '</div>';
-				echo '<div class="categories">';
-				echo '<span>';
-				the_category( '</span><span>' );
-				echo '</span>';
-				echo '</div>';
+
 				the_tags( '<div class="tags"><span>', '</span><span>', '</span></div>' );
 
+				echo '</div>';
+
 				the_excerpt();
+
 				echo '</section>';
 			}
 			echo '</article>';

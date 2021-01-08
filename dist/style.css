@@ -1032,6 +1032,9 @@ footer .lower .container {
   margin-top: 50px;
 }
 
+body.page-template-blog .content-container .container section h2, body.archive .content-container .container section h2 {
+  margin-top: 2em;
+}
 body.page-template-blog .content-container .container section h2 a, body.archive .content-container .container section h2 a {
   color: #222222;
 }
