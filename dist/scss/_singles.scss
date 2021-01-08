@@ -148,11 +148,6 @@
         .pagenation {
             text-align: center;
 
-            @media ($min-tablet) {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-
             &::before {
                 display: block;
                 content: '';
@@ -166,11 +161,19 @@
                 flex-direction: column;
                 width: 100%;
 
+                @media ($min-tablet) {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+    
                 .link {
                     background-color: $green;
                     width: 100%;
                     padding: 10px;
                     color: $white;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
 
                     @media ($min-tablet) {
                         width: 40%;

@@ -41,6 +41,7 @@ body.bbpress {
                     & + li {
                         margin-top: 10px;
                         @media ($min-tablet) {
+                            margin-top: 0;
                             margin-left: 20px;
                         }
                     }

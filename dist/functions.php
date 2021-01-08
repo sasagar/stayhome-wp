@@ -55,7 +55,22 @@ function sha_theme_customize_register( $wp_customize ) {
 				'label'       => 'Favicon用画像', // 設定項目のタイトル.
 				'section'     => 'sha_theme_favicon_section', // 追加するセクションのID.
 				'settings'    => 'favicon', // 追加する設定項目のID.
-				'description' => 'Favicon画像を設定してください。(PNG形式 512px四方)', // 設定項目の説明.
+				'description' => 'Favicon画像を設定してください。(PNG形式)', // 設定項目の説明.
+			)
+		)
+	);
+
+	$wp_customize->add_setting( 'apple-icon' );
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'apple-icon',
+			array(
+				'label'       => 'iOS用ホームスクリーンアイコン画像', // 設定項目のタイトル.
+				'section'     => 'sha_theme_favicon_section', // 追加するセクションのID.
+				'settings'    => 'apple-icon', // 追加する設定項目のID.
+				'description' => 'iOSのホームスクリーンに追加したときに表示される画像を設定してください。(PNG形式 512px四方)', // 設定項目の説明.
 			)
 		)
 	);
@@ -236,7 +251,9 @@ add_filter( 'get_the_archive_title', 'sha_archive_title' );
 function sha_favicon_insert() {
 	if ( get_theme_mod( 'favicon' ) ) {
 		echo '<link rel="icon" type="image/png" href="' . esc_url( get_theme_mod( 'favicon' ) ) . '">';
-		echo '<link rel="apple-touch-icon" sizes="512x512" href="' . esc_url( get_theme_mod( 'favicon' ) ) . '">';
+	}
+	if ( get_theme_mod( 'apple-icon' ) ) {
+		echo '<link rel="apple-touch-icon" sizes="512x512" href="' . esc_url( get_theme_mod( 'apple-icon' ) ) . '">';
 	}
 }
 

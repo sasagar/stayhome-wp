@@ -181,9 +181,7 @@ endif;
 				?>
 			<li>
 				<h3><?php the_title(); ?></h3>
-				<p>
-					<?php the_excerpt(); ?>
-				</p>
+				<?php the_excerpt(); ?>
 				<div class="button-container">
 					<a href="<?php the_permalink(); ?>">続きを読む</a>
 				</div>
@@ -259,9 +257,7 @@ endif;
 				}
 				?>
 				<h3><?php the_title(); ?></h3>
-				<p>
 					<?php the_excerpt(); ?>
-				</p>
 				<div class="button-container">
 					<a href="<?php the_permalink(); ?>">続きを読む</a>
 				</div>
