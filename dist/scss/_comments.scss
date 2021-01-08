@@ -1,0 +1,17 @@
+#comments {
+    .comment-form-comment {
+        label {
+            display: block;
+            @include fontsize(18);
+            font-weight: bold;
+        }
+
+        #comment {
+            max-width: 100%;
+        }
+    }
+
+    input {
+        max-width: 100%;
+    }
+}

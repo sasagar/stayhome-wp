@@ -26,9 +26,13 @@ get_header();
 
 <div class="content-container">
 	<div class="content-header">
-		<?php
-			echo '<img src="' . esc_html( get_theme_mod( 'ogp_img', false ) ) . '" alt="' . esc_html( get_the_title() ) . '">';
-		?>
+	<?php
+	if ( has_post_thumbnail() ) {
+		the_post_thumbnail();
+	} else {
+		echo '<img src="' . esc_html( get_theme_mod( 'ogp_img', false ) ) . '" alt="' . esc_html( get_the_title() ) . '">';
+	}
+	?>
 	</div>
 	<div class="container">
 		<?php

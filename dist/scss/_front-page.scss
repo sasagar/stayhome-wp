@@ -17,7 +17,19 @@
             }
         }
     }
+
+    &.wpsisac-center {
+        .slick-slide {
+            .wpsisac-image-slide-wrap {
+                @media (max-width: 480px) {
+                    // Use 480px: due to plugin media query.
+                    height: calc( 100vw * 9 / 16 ) !important;
+                }
+            }
+        }
+    }
 }
+
 
 .wpsisac-image-fit {
     .wpsisac-image-slide-wrap,
@@ -40,7 +52,7 @@
 }
 
 .ticker-container {
-    background-color: $pink;
+    background-color: lighten($pink, 10%);
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -52,7 +64,7 @@
 
         h2 {
             @include fontsize(16);
-            color: $green;
+            color: darken($green, 10%);
             margin-bottom: 0;
             margin-right: 20px;
             font-weight: bold;
@@ -64,10 +76,22 @@
             ul {
                 li {
                     display: flex;
+                    border-left: solid $blue 5px;
+
+                    @media ($max-sp) {
+                        flex-direction: column;
+                    }
 
                     time {
-                        border-left: solid $blue 5px;
                         padding-left: 20px;
+
+                        @media ($max-sp) {
+                            padding-left: 0px;
+                            margin-left: 10px;
+                            padding-bottom: 2px;
+                            margin-bottom: 2px;
+                            border-bottom: solid $brown 1px;
+                        }
                     }
 
                     a {
@@ -75,12 +99,16 @@
                         text-decoration: none;
                         transition: color .3s ease-in-out;
                         
+                        @media ($max-sp) {
+                            padding-left: 10px;
+                        }
+
                         @media ($min-tablet) {
                             margin-left: 10px;
                         }
 
                         &:hover {
-                            color: $blue;
+                            color: $green;
                         }
                     }
                 }
@@ -212,7 +240,7 @@
             width: 100%;
 
             li {
-                border-color: $blue;
+                border-color: darken($blue, 15%);
                 flex-grow: 1;
 
                 .button-container {
@@ -276,6 +304,20 @@
             li {
                 background-color: $white;
                 border-color: darken($green, 5%);
+
+                .event-tax {
+                    text-align: center;
+                    font-weight: bold;
+                    @include fontsize(12);
+                    
+                    &::after {
+                        display: block;
+                        content: '';
+                        width: 50px;
+                        margin: 10px auto;
+                        border-bottom: solid lighten($green, 10%) 1px;
+                    }
+                }
 
                 .button-container {
                     a {

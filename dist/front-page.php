@@ -23,7 +23,7 @@ get_header();
 <div class="slick-container">
 	<div class="slick-inner-container">
 	<?php
-	echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" slidestoshow="3" category="10" image_fit="true" sliderheight="300" autoplay="true" autoplay_interval="5000" speed="1000"]' );
+	echo do_shortcode( '[slick-carousel-slider design="design-6" centermode="true" slidestoshow="3" category="10" image_fit="true" sliderheight="300" autoplay="true" autoplay_interval="5000" speed="1000" extra_class="skip-lazy" lazyload="ondemand"]' );
 	?>
 	</div>
 </div>
@@ -250,6 +250,14 @@ endif;
 				$event_query->the_post();
 				?>
 			<li>
+				<?php
+				$terms = get_the_terms( $post->ID, 'event_taxonomy' );
+				foreach ( $terms as $eterm ) {
+					echo '<div class="event-tax">';
+					echo esc_html( $eterm->name );
+					echo '</div>';
+				}
+				?>
 				<h3><?php the_title(); ?></h3>
 				<p>
 					<?php the_excerpt(); ?>
@@ -262,10 +270,10 @@ endif;
 				<?php
 			}
 
-			$blog_count = $blog_query->post_count;
-			if ( 4 > $blog_count ) {
-				while ( 4 > $blog_count ) {
-					$blog_count++;
+			$event_count = $event_query->post_count;
+			if ( 4 > $event_count ) {
+				while ( 4 > $event_count ) {
+					$event_count++;
 					?>
 					<li>
 						<h3>Coming Soon</h3>
@@ -277,10 +285,10 @@ endif;
 				}
 			}
 		} else {
-			$blog_count = 0;
-			if ( 4 > $blog_count ) {
-				while ( 4 > $blog_count ) {
-					$blog_count++;
+			$event_count = 0;
+			if ( 4 > $event_count ) {
+				while ( 4 > $event_count ) {
+					$event_count++;
 					?>
 					<li>
 						<h3>Coming Soon</h3>

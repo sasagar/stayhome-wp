@@ -24,7 +24,7 @@ add_theme_support( 'post-thumbnails' );
  * */
 function sha_load_scripts() {
 	wp_enqueue_style( 'reboot', get_template_directory_uri() . '/reboot.css', '', filemtime( get_template_directory() . '/reboot.css' ) );
-	wp_enqueue_style( 'mplus-webfont', 'https://fonts.googleapis.com/css?family=M+PLUS+1p', array( 'reboot' ), filemtime( get_template_directory() . '/style.css' ) );
+	wp_enqueue_style( 'mplus-webfont', 'https://fonts.googleapis.com/css?family=M+PLUS+1p:400,700&display=swap', array( 'reboot' ), filemtime( get_template_directory() . '/style.css' ) );
 	wp_enqueue_style( 'main', get_stylesheet_uri(), array( 'reboot', 'mplus-webfont' ), filemtime( get_template_directory() . '/style.css' ) );
 
 	wp_enqueue_script( 'vticker', get_template_directory_uri() . '/js/jquery.vticker.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/jquery.vticker.min.css' ), false );
@@ -173,6 +173,10 @@ function sha_get_the_logo_img_url() {
 /**
  * OGP output from theme customizer.
  */
+
+/*
+Commented due to plugin.
+
 function sha_ogp() {
 	$og_img      = get_theme_mod( 'ogp_img', false );
 	$og_twaccont = get_theme_mod( 'ogp_twaccount', false );
@@ -241,6 +245,7 @@ function sha_ogp() {
 }
 
 add_action( 'wp_head', 'sha_ogp' ); // headにOGPを出力.
+*/
 
 /**
  * Favicon.
@@ -485,3 +490,29 @@ function sha_get_archive_title() {
 	// それ以外(カテゴリ・タグ・タクソノミーアーカイブページ).
 	return single_term_title( '', false );
 }
+
+/**
+ * Manifest filter for PWA plugin.
+ */
+add_filter(
+	'web_app_manifest',
+	function( $manifest ) {
+		$manifest['icons']      = array(
+			array(
+				'src'     => get_template_directory_uri() . '/images/pwa-icon.png',
+				'sizes'   => '512x512',
+				'type'    => 'image/png',
+				'purpose' => 'any',
+			),
+			array(
+				'src'     => get_template_directory_uri() . '/images/pwa-icon-maskable.png',
+				'sizes'   => '465x465',
+				'type'    => 'image/png',
+				'purpose' => 'maskable',
+			),
+		);
+		$manifest['short_name'] = 'StayHomeAir';
+		$manifest['display']    = 'standalone';
+		return $manifest;
+	}
+);

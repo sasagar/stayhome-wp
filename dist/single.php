@@ -59,9 +59,28 @@ get_header();
 				the_content();
 				echo '</article>';
 
-				wp_pagenavi();
+				if ( get_previous_post() || get_next_post() ) :
+					echo '<div class="pagenation">';
+					echo '<section>';
+					if ( get_previous_post() ) :
+						echo '<div class="link">';
+						previous_post_link( '&laquo; %link', '前の記事: %title' );
+						echo '</div>';
+					else :
+						echo '<div class="dummy"></div>';
+					endif;
+					if ( get_next_post() ) :
+						echo '<div class="link">';
+						next_post_link( '%link &raquo;', '次の記事: %title' );
+						echo '</div>';
+					else :
+						echo '<div class="dummy"></div>';
+					endif;
+					echo '</section>';
+					echo '</div>';
+				endif;
 			}
-			comment_form();
+			comments_template();
 		} else {
 			?>
 			<h1>

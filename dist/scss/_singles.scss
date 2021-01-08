@@ -51,7 +51,6 @@
                 margin-bottom : 10px;
                 span {
                     display: inline-block;
-                    padding: 5px 10px;
                     margin: 0;
                     color: $green;
                     background: lighten($green, 50%);
@@ -59,6 +58,11 @@
                     
                     & + span {
                         margin-left: 10px;
+                    }
+
+                    a {
+                        display: block;
+                        padding: 5px 10px;
                     }
                 }
             }
@@ -118,6 +122,14 @@
                 }
             }
 
+            figure {
+                figcaption {
+                    @include fontsize(12);
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+
             // CF7
             .wpcf7 {
                 @media ($max-sp) {
@@ -128,6 +140,44 @@
 
                     textarea {
                         width: 100%;
+                    }
+                }
+            }
+        }
+
+        .pagenation {
+            text-align: center;
+
+            @media ($min-tablet) {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            &::before {
+                display: block;
+                content: '';
+                width: 50px;
+                margin: 50px auto;
+                border-top: solid $pink 1px;
+            }
+
+            section {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .link {
+                    background-color: $green;
+                    width: 100%;
+                    padding: 10px;
+                    color: $white;
+
+                    @media ($min-tablet) {
+                        width: 40%;
+                    }
+
+                    a {
+                        color: $white;
                     }
                 }
             }
