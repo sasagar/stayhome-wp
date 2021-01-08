@@ -1,8 +1,8 @@
 <?php
 /**
- * Index.php
+ * 404.php
  *
- * Fall back template for Theme.
+ * 404 error template for Theme.
  *
  * @category   Components
  * @package    WordPress
@@ -17,27 +17,11 @@
 
 <?php
 get_header();
-
 ?>
 
 <div class="content-container">
 	<div class="container">
-		<?php
-		if ( have_posts() ) {
-			while ( have_posts() ) {
-				the_post();
-
-				echo '<h1>';
-				echo '<a href="' . esc_html( get_permalink() ) . '">';
-				echo esc_html( get_the_title() );
-				echo '</a>';
-				echo '</h1>';
-				the_content();
-			}
-		} else {
-			get_template_part( 'module', '404' );
-		}
-		?>
+		<?php get_template_part( 'module', '404' ); ?>
 	</div>
 </div>
 <?php

@@ -63,14 +63,7 @@
 			wp_pagenavi();
 		}
 	} else {
-		?>
-		<h1>
-			Contents not found.
-		</h1>
-		<article>
-			<p>記事が見つかりませんでした。</p>
-		</article>
-		<?php
+		get_template_part( 'module', '404' );
 	}
 	?>
 </div>

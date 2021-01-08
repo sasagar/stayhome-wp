@@ -314,6 +314,19 @@ if ( function_exists( 'register_sidebar' ) ) {
 			'after_title'   => '</h3>',
 		)
 	);
+
+	register_sidebar(
+		array(
+			'name'          => '404エラーページ用リンク',
+			'id'            => 'widget-404',
+			'description'   => '404エラーページの案内下に配置されるセクションです',
+			'class'         => 'widget-404-section',
+			'before_widget' => '<div class="widget widget-404">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		)
+	);
 }
 
 /**
