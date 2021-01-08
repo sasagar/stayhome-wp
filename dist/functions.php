@@ -27,7 +27,7 @@ function sha_load_scripts() {
 	wp_enqueue_style( 'mplus-webfont', 'https://fonts.googleapis.com/css?family=M+PLUS+1p', array( 'reboot' ), filemtime( get_template_directory() . '/style.css' ) );
 	wp_enqueue_style( 'main', get_stylesheet_uri(), array( 'reboot', 'mplus-webfont' ), filemtime( get_template_directory() . '/style.css' ) );
 
-	wp_enqueue_script( 'vticker', get_template_directory_uri() . '/js/jquery.vticker.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/jquery.vticker.min.css' ), false );
+	wp_enqueue_script( 'vticker', get_template_directory_uri() . '/js/jquery.vticker.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/jquery.vticker.min.js' ), false );
 }
 add_action( 'wp_enqueue_scripts', 'sha_load_scripts' );
 
@@ -160,6 +160,41 @@ function sha_theme_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_section(
+		'sha_theme_archive_section',
+		array(
+			'title'    => 'アーカイブヘッダー設定', // 項目名.
+			'priority' => 25, // 優先順位.
+		)
+	);
+
+	$post_types = array_diff(
+		get_post_types(
+			array( 'public' => true )
+		),
+		cptui_reserved_post_types(),
+		array( 'forum', 'topic', 'reply' )
+	);
+
+	foreach ( $post_types as $type ) {
+		$post_type_obj = get_post_type_object( $type );
+
+		$wp_customize->add_setting( $type . '-archive-img' );
+
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				$type . '-archive-img',
+				array(
+					'label'       => $post_type_obj->labels->name . 'アーカイブ用画像', // 設定項目のタイトル.
+					'section'     => 'sha_theme_archive_section', // 追加するセクションのID.
+					'settings'    => $type . '-archive-img', // 追加する設定項目のID.
+					'description' => $post_type_obj->labels->name . '(' . $type . ')のアーカイブ用ヘッダー画像を選択してください。', // 設定項目の説明.
+				)
+			)
+		);
+	}
+
 }
 add_action( 'customize_register', 'sha_theme_customize_register' );
 
@@ -169,6 +204,31 @@ add_action( 'customize_register', 'sha_theme_customize_register' );
 function sha_get_the_logo_img_url() {
 	return esc_url( get_theme_mod( 'logo_img' ) );
 }
+
+/**
+ * Change archive title.
+ *
+ * @param String $title Title string.
+ */
+function sha_archive_title( $title ) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_tax() ) {
+		$title = single_term_title( '', false );
+	} elseif ( is_post_type_archive() ) {
+		$title = post_type_archive_title( '', false );
+	} elseif ( is_date() ) {
+		$title = get_the_time( '<time datetime="Y-m">Y年n月</time>' );
+	} elseif ( is_search() ) {
+		$title = '検索結果：' . esc_html( get_search_query( false ) );
+	} elseif ( is_404() ) {
+		$title = '「404」ページが見つかりません';
+	}
+	return $title;
+};
+add_filter( 'get_the_archive_title', 'sha_archive_title' );
 
 /**
  * OGP output from theme customizer.

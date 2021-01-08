@@ -54,6 +54,13 @@ get_header();
 				echo '<span>最終更新日: <time>' . esc_html( get_the_modified_date() ) . '</time></span>';
 				echo '<span>公開日: <time>' . esc_html( get_the_date() ) . '</time></span>';
 				echo '</div>';
+				echo '<div class="categories">';
+				echo '<span>';
+				the_category( '</span><span>' );
+				echo '</span>';
+				echo '</div>';
+				the_tags( '<div class="tags"><span>', '</span><span>', '</span></div>' );
+
 				the_excerpt();
 				echo '</section>';
 			}

@@ -37,7 +37,9 @@ get_header();
 				the_post();
 
 				echo '<h1>' . esc_html( get_the_title() ) . '</h1>';
+				
 				echo '<div class="author">';
+				echo '記事を書いた人: ';
 				the_author();
 				echo '</div>';
 				echo '<div class="published-date">';
@@ -50,6 +52,7 @@ get_header();
 				echo '</span>';
 				echo '</div>';
 				the_tags( '<div class="tags"><span>', '</span><span>', '</span></div>' );
+
 				echo '<article>';
 				the_content();
 				echo '</article>';
