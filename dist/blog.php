@@ -71,6 +71,13 @@ get_header();
 				echo '	</div>';
 				the_tags( '<div class="tags"><span>', '</span><span>', '</span></div>' );
 				echo '</div>';
+				echo '<div class="categories">';
+				echo '<span>';
+				the_category( '</span><span>' );
+				echo '</span>';
+				echo '</div>';
+				the_tags( '<div class="tags"><span>', '</span><span>', '</span></div>' );
+
 				the_excerpt();
 				echo '</section>';
 			}
