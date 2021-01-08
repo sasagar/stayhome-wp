@@ -129,11 +129,22 @@ footer {
             margin-left: 20px;
             margin-right: 20px;
             width: auto;
+            display: block;
 
             @media ($min-tablet) {
                 margin-left: auto;
                 margin-right: auto;
                 width: 100%;
+            }
+
+            .discraimer {
+                @include fontsize(10);
+                margin-top: 10px;
+                margin-bottom: 10px;
+
+                a {
+                    color: $blue;
+                }
             }
         }
     }

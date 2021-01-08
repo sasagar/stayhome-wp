@@ -491,6 +491,7 @@ footer .lower .container {
   margin-left: 20px;
   margin-right: 20px;
   width: auto;
+  display: block;
 }
 @media (min-width: 520px) {
   footer .lower .container {
@@ -498,6 +499,15 @@ footer .lower .container {
     margin-right: auto;
     width: 100%;
   }
+}
+footer .lower .container .discraimer {
+  font-size: 10px;
+  font-size: 0.625rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+footer .lower .container .discraimer a {
+  color: #c2ffff;
 }
 
 .form-req span::after {
@@ -792,8 +802,10 @@ footer .lower .container {
 .front-logged-in-container .front-logged-in ul li .button-container a:hover {
   background-color: #3c0000;
 }
-.front-logged-in-container .front-logged-in ul li + li {
-  margin-left: 20px;
+@media (min-width: 520px) {
+  .front-logged-in-container .front-logged-in ul li + li {
+    margin-left: 20px;
+  }
 }
 
 .front-blog-container {

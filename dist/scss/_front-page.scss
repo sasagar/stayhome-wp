@@ -252,8 +252,11 @@
                         }
                     }
                 }
+                
                 & + li {
-                    margin-left: 20px;
+                    @media ($min-tablet) {
+                        margin-left: 20px;
+                    }
                 }
             }
         }

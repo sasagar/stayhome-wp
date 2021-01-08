@@ -41,6 +41,18 @@
 
 			echo '</div>';
 
+			if ( is_post_type_archive( 'event' ) ) {
+
+				echo '<div class="article-meta-section-lower">';
+
+				echo '	<div class="categories">';
+				the_terms( $post->ID, 'event_taxonomy', '<span>', '</span><span>', '</span>' );
+				echo '	</div>';
+
+				echo '</div>';
+
+			}
+
 			the_excerpt();
 			echo '</section>';
 		}
