@@ -529,3 +529,8 @@ add_filter(
 		return $manifest;
 	}
 );
+
+/**
+ * Remove admin bar from frontend.
+ */
+add_filter( 'show_admin_bar', 'is_blog_admin' );

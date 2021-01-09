@@ -78,7 +78,6 @@ if ( is_user_logged_in() ) :
 	$display_name = $user->display_name;
 	?>
 	<div class="front-logged-in-container">
-		<img class="bg-logo" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/hp-hol-ol.svg" alt="SHAロゴ" aria-hidden="true">
 		<div class="container front-logged-in">
 			<h2>
 				Welcome back, <?php echo esc_html( $display_name ); ?>!
@@ -103,13 +102,31 @@ if ( is_user_logged_in() ) :
 					$user    = wp_get_current_user();
 					$user_id = $user->user_nicename;
 					?>
-					<a href="<?php echo esc_url( home_url( '/forums/users/' . $user_id ) ); ?>">
-					マイページ	
-					</a>
+						<a href="<?php echo esc_url( home_url( '/forums/users/' . $user_id ) ); ?>">
+							マイページ
+						</a>
 					</div>
 				</li>
+				<?php
+				if ( current_user_can( 'administrator' ) || current_user_can( 'editor' ) || current_user_can( 'author' ) || current_user_can( 'contributor' ) ) :
+					?>
+					<li>
+						<h3>管理画面</h3>
+						<p>
+							ブログ投稿・フォーラム設置などの画面です。（権限別で表示内容が変わります。）
+						</p>
+						<div class="button-container">
+							<a href="<?php echo esc_url( site_url( '/wp-admin/' ) ); ?>">
+								管理画面
+							</a>
+						</div>
+					</li>
+					<?php
+				endif;
+				?>
 			</ul>
 		</div>
+		<!-- <img class="bg-logo" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/hp-hol-ol.svg" alt="SHAロゴ" aria-hidden="true"> -->
 	</div>
 	<?php
 endif;
