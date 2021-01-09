@@ -69,8 +69,10 @@
 
             .tags {
                 span {
-                    & + span {
-                        margin-left: 10px;
+                    margin-right: 10px;
+
+                    &:last-child {
+                        margin-right: 0;
                     }
 
                     a {
