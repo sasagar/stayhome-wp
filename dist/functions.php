@@ -372,6 +372,10 @@ function discord_ctz_post_request_args( $args ) {
 							'value' => $body['your-ytname'],
 						),
 						array(
+							'name'  => 'メールアドレス',
+							'value' => $body['your-email'],
+						),
+						array(
 							'name'  => 'Discordユーザー名',
 							'value' => $body['your-discordtag'],
 						),
