@@ -70,15 +70,32 @@ header {
         justify-content: space-between;
         align-items: flex-end;
 
-        & > a {
-            display: block;
+        .left-upper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             margin-top: 10px;
-            padding: 2px 20px;
-            border-radius: 20px;
-            color: $white;
 
-            &.login {
-                background-color: $green;
+            .language-switcher {
+                list-style: none;
+                margin-right: 20px;
+                margin-bottom: 0;
+                padding: 0;
+
+                li {
+                    display: inline-block;
+                }
+            }
+
+            & > a {
+                display: block;
+                padding: 2px 20px;
+                border-radius: 20px;
+                color: $white;
+
+                &.login {
+                    background-color: $green;
+                }
             }
         }
 

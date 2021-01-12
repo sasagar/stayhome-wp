@@ -17,7 +17,7 @@
 
 <?php
 get_header();
-
+$locale_now = get_locale();
 ?>
 
 <div class="slick-container">
@@ -31,7 +31,11 @@ get_header();
 <div class="ticker-container">
 	<div class="container">
 		<h2 class="newsheading">
-			ニュースリリース
+			<?php if ( 'en_US' === $locale_now ) : ?>
+				News Release
+			<?php else : ?>
+				ニュースリリース
+			<?php endif; ?>
 		</h2>
 		<div id="newsticker">
 			<ul>
@@ -134,43 +138,79 @@ endif;
 
 <div class="container front-about">
 	<h2>
+	<?php if ( 'en_US' === $locale_now ) : ?>
+		About Stay Home Airlines
+	<?php else : ?>
 		Stay Home Airlinesについて
+	<?php endif; ?>
 	</h2>
 	<ul>
 		<li>
 			<h3>About us</h3>
 			<p>
-				フライトシミュレーターにおけるヴァーチャルエアラインや私たちStay Home Airlinesについてご紹介します。
+				<?php if ( 'en_US' === $locale_now ) : ?>
+					Learn about virtual airlines in flight simulators and about us at Stay Home Airlines.
+				<?php else : ?>
+					フライトシミュレーターにおけるヴァーチャルエアラインや私たちStay Home Airlinesについてご紹介します。
+				<?php endif; ?>
 			</p>
 			<div class="button-container">
-				<a href="/about-us/">詳しく見る</a>
+				<?php if ( 'en_US' === $locale_now ) : ?>
+					<a href="/about-us-en/">About Us</a>
+				<?php else : ?>
+					<a href="/about-us/">詳しく見る</a>
+				<?php endif; ?>
 			</div>
 		</li>
 		<li>
 			<h3>Divisions</h3>
 			<p>
-				Stay Home Airlinesでは、社員それぞれのスキルアップを目指すため部門を分けています。各部門をご紹介します。
+				<?php if ( 'en_US' === $locale_now ) : ?>
+					At Stay Home Airlines, we have divided our employees into different departments in order to improve their skills. Here is an introduction to each department.
+				<?php else : ?>
+					Stay Home Airlinesでは、社員それぞれのスキルアップを目指すため部門を分けています。各部門をご紹介します。
+				<?php endif; ?>
 			</p>
 			<div class="button-container">
-				<a href="/division/">詳しく見る</a>
+				<?php if ( 'en_US' === $locale_now ) : ?>
+					<a href="/division-en/">Divisions</a>
+				<?php else : ?>
+					<a href="/division/">詳しく見る</a>
+				<?php endif; ?>
 			</div>
 		</li>
 		<li>
 			<h3>Events</h3>
 			<p>
-				過去に開催した社内イベントなどについてご報告します。社内の雰囲気などを感じて頂けたらと思います。
+				<?php if ( 'en_US' === $locale_now ) : ?>
+					We would like to report on some of our past internal events. We hope you can get a feel for the atmosphere of the company.
+				<?php else : ?>
+					過去に開催した社内イベントなどについてご報告します。社内の雰囲気などを感じて頂けたらと思います。
+				<?php endif; ?>
 			</p>
 			<div class="button-container">
-				<a href="<?php echo esc_url( home_url( '/event/' ) ); ?>">詳しく見る</a>
+				<?php if ( 'en_US' === $locale_now ) : ?>
+					<a href="<?php echo esc_url( home_url( '/en/event/' ) ); ?>">Events List</a>
+				<?php else : ?>
+					<a href="<?php echo esc_url( home_url( '/event/' ) ); ?>">詳しく見る</a>
+				<?php endif; ?>
 			</div>
 		</li>
 		<li>
 			<h3>Recruit</h3>
 			<p>
-				Stay Home Airlinesはフライトシミュレーターのスキルアップを目指す皆さんを募集しています。
+				<?php if ( 'en_US' === $locale_now ) : ?>
+				Stay Home Airlines is looking for people who want to improve their flight simulator skills.
+				<?php else : ?>
+					Stay Home Airlinesはフライトシミュレーターのスキルアップを目指す皆さんを募集しています。
+				<?php endif; ?>
 			</p>
 			<div class="button-container">
-				<a href="/recruit/">詳しく見る</a>
+				<?php if ( 'en_US' === $locale_now ) : ?>
+					<a href="/recruit-en/">Recruit</a>
+				<?php else : ?>
+					<a href="/recruit/">詳しく見る</a>
+				<?php endif; ?>
 			</div>
 		</li>
 	</ul>
@@ -179,7 +219,11 @@ endif;
 <div class="front-blog-container">
 	<div class="container front-blog">
 		<h2>
-			ブログ
+			<?php if ( 'en_US' === $locale_now ) : ?>
+				Blog
+			<?php else : ?>
+				ブログ
+			<?php endif; ?>
 		</h2>
 
 		<ul>
@@ -200,7 +244,11 @@ endif;
 				<h3><?php the_title(); ?></h3>
 				<?php the_excerpt(); ?>
 				<div class="button-container">
-					<a href="<?php the_permalink(); ?>">続きを読む</a>
+					<?php if ( 'en_US' === $locale_now ) : ?>
+						<a href="<?php the_permalink(); ?>">Read more</a>
+					<?php else : ?>
+						<a href="<?php the_permalink(); ?>">続きを読む</a>
+					<?php endif; ?>
 				</div>
 			</li>
 
@@ -215,7 +263,11 @@ endif;
 					<li>
 						<h3>Coming Soon</h3>
 						<p>
-							他のブログ公開までお待ちください！
+							<?php if ( 'en_US' === $locale_now ) : ?>
+								Don't miss our new posts!
+							<?php else : ?>
+								他のブログ公開までお待ちください！
+							<?php endif; ?>
 						</p>
 					</li>
 					<?php
@@ -230,7 +282,11 @@ endif;
 					<li>
 						<h3>Coming Soon</h3>
 						<p>
-							他のブログ公開までお待ちください！
+							<?php if ( 'en_US' === $locale_now ) : ?>
+								Don't miss our new posts!
+							<?php else : ?>
+								他のブログ公開までお待ちください！
+							<?php endif; ?>
 						</p>
 					</li>
 					<?php
@@ -276,7 +332,11 @@ endif;
 				<h3><?php the_title(); ?></h3>
 					<?php the_excerpt(); ?>
 				<div class="button-container">
-					<a href="<?php the_permalink(); ?>">続きを読む</a>
+					<?php if ( 'en_US' === $locale_now ) : ?>
+						<a href="<?php the_permalink(); ?>">Read more</a>
+					<?php else : ?>
+						<a href="<?php the_permalink(); ?>">続きを読む</a>
+					<?php endif; ?>
 				</div>
 			</li>
 
@@ -291,7 +351,11 @@ endif;
 					<li>
 						<h3>Coming Soon</h3>
 						<p>
-							他のイベント情報・報告の公開までお待ちください！
+							<?php if ( 'en_US' === $locale_now ) : ?>
+								Don't miss our new events!
+							<?php else : ?>
+								他のイベント情報・報告の公開までお待ちください！
+							<?php endif; ?>
 						</p>
 					</li>
 					<?php
@@ -306,7 +370,11 @@ endif;
 					<li>
 						<h3>Coming Soon</h3>
 						<p>
-							他のイベント情報・報告までお待ちください！
+							<?php if ( 'en_US' === $locale_now ) : ?>
+								Don't miss our new events!
+							<?php else : ?>
+								他のイベント情報・報告の公開までお待ちください！
+							<?php endif; ?>
 						</p>
 					</li>
 					<?php

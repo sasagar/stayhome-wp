@@ -265,9 +265,8 @@ add_action( 'wp_head', 'sha_favicon_insert' );
 function sha_register_menus() {
 	register_nav_menus(
 		array(
-			'global'      => 'ヘッダーグローバルナビ',
-			'sp-global'   => 'SP用ヘッダーグローバルナビ',
-			'footer-menu' => 'Footer Menu',
+			'global'    => 'ヘッダーグローバルナビ',
+			'sp-global' => 'SP用ヘッダーグローバルナビ',
 		)
 	);
 }

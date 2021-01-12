@@ -13,6 +13,7 @@
  * @since      1.0.0
  */
 
+$locale_now = get_locale();
 ?>
 
 <footer>
@@ -40,8 +41,13 @@
 	<div class="lower">
 		<div class="container">
 			<div class="discraimer">
-				サイト内で用いられる会社名、システム名、製品名は、一般に各社の登録商標または商標です。<br>
-				なお、サイト内では&reg;・&trade;などは記していません。各商標に関する記載内容のお問い合わせは、商標権をお持ちの方より<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">お問い合わせフォーム</a>からご連絡ください。
+				<?php if ( 'en_US' === $locale_now ) : ?>
+					All trademarks and logos are the properties of their respective holders. We don't put any &reg; or &trade; for each properties.<br>
+					For inquiries regarding the content of each trademark, please contact from the trademark holder via <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">contact form</a>.
+				<?php else : ?>
+					サイト内で用いられる会社名、システム名、製品名は、一般に各社の登録商標または商標です。<br>
+					なお、サイト内では&reg;・&trade;などは記していません。各商標に関する記載内容のお問い合わせは、商標権をお持ちの方より<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">お問い合わせフォーム</a>からご連絡ください。
+				<?php endif; ?>
 			</div>
 			<div class="copyright"><small>&copy; 2021 Stay Home Airlines.<small></div>
 		</div>

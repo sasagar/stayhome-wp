@@ -56,17 +56,31 @@
 			}
 			?>
 			<div class="header-l">
-				<?php
-				if ( is_user_logged_in() ) {
-					?>
-					<a href="<?php echo esc_url( home_url( '/logout/' ) ); ?>" class="login hidesp hidetab">ログアウト</a>
+				<div class="left-upper">
+					<ul class="language-switcher hidesp hidetab">
+						<?php
+						pll_the_languages(
+							array(
+								'show_flags'    => 1,
+								'show_names'    => 0,
+								'hide_current'  => 1,
+								'hide_if_empty' => 1,
+							)
+						);
+						?>
+					</ul>
 					<?php
-				} else {
+					if ( is_user_logged_in() ) {
+						?>
+						<a href="<?php echo esc_url( home_url( '/logout/' ) ); ?>" class="login hidesp hidetab">ログアウト</a>
+						<?php
+					} else {
+						?>
+						<a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="login hidesp hidetab">社員ログイン</a>
+						<?php
+					}
 					?>
-					<a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="login hidesp hidetab">社員ログイン</a>
-					<?php
-				}
-				?>
+				</div>
 				<?php
 				wp_nav_menu(
 					array(
