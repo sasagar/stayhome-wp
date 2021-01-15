@@ -1,0 +1,15 @@
+div.wpgdprc-consent-bar {
+    div.wpgdprc-consent-bar__content {
+        @media ($max-sp) {
+            flex-direction: column;
+        }
+    }
+
+    div.wpgdprc-consent-bar__column {
+        & + div.wpgdprc-consent-bar__column {
+            @media ($max-sp) {
+                margin-top: 10px;
+            }
+        }
+    }
+}

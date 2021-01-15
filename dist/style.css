@@ -1179,4 +1179,19 @@ body.bbpress .forum-content-header .container ul li + li {
     margin-left: 20px;
   }
 }
+
+@media (max-width: 519px) {
+  div.wpgdprc-consent-bar div.wpgdprc-consent-bar__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (max-width: 519px) {
+  div.wpgdprc-consent-bar div.wpgdprc-consent-bar__column + div.wpgdprc-consent-bar__column {
+    margin-top: 10px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
