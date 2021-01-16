@@ -18,6 +18,17 @@ add_theme_support( 'html5' );
 add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
 
+/**
+ * Remove type attributes.
+ *
+ * @param String $tag Tags.
+ * @param Object $handle Handle.
+ */
+function codeless_remove_type_attr( $tag, $handle ) {
+	return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
+}
+add_filter( 'style_loader_tag', 'codeless_remove_type_attr', 10, 2 );
+add_filter( 'script_loader_tag', 'codeless_remove_type_attr', 10, 2 );
 
 /**
  * Load styles and scripts.
