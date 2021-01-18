@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Functions.php
  *
@@ -14,9 +15,9 @@
  */
 
 // theme supports.
-add_theme_support( 'html5' );
-add_theme_support( 'title-tag' );
-add_theme_support( 'post-thumbnails' );
+add_theme_support('html5');
+add_theme_support('title-tag');
+add_theme_support('post-thumbnails');
 
 /**
  * Remove type attributes.
@@ -24,31 +25,34 @@ add_theme_support( 'post-thumbnails' );
  * @param String $tag Tags.
  * @param Object $handle Handle.
  */
-function codeless_remove_type_attr( $tag, $handle ) {
-	return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
+function codeless_remove_type_attr($tag, $handle)
+{
+	return preg_replace("/type=['\"]text\/(javascript|css)['\"]/", '', $tag);
 }
-add_filter( 'style_loader_tag', 'codeless_remove_type_attr', 10, 2 );
-add_filter( 'script_loader_tag', 'codeless_remove_type_attr', 10, 2 );
+add_filter('style_loader_tag', 'codeless_remove_type_attr', 10, 2);
+add_filter('script_loader_tag', 'codeless_remove_type_attr', 10, 2);
 
 /**
  * Load styles and scripts.
  * */
-function sha_load_scripts() {
-	wp_enqueue_style( 'reboot', get_template_directory_uri() . '/reboot.css', '', filemtime( get_template_directory() . '/reboot.css' ) );
-	wp_enqueue_style( 'mplus-webfont', 'https://fonts.googleapis.com/css?family=M+PLUS+1p:400,700&display=swap', array( 'reboot' ), filemtime( get_template_directory() . '/style.css' ) );
-	wp_enqueue_style( 'main', get_stylesheet_uri(), array( 'reboot', 'mplus-webfont' ), filemtime( get_template_directory() . '/style.css' ) );
+function sha_load_scripts()
+{
+	wp_enqueue_style('reboot', get_template_directory_uri() . '/reboot.css', '', filemtime(get_template_directory() . '/reboot.css'));
+	wp_enqueue_style('mplus-webfont', 'https://fonts.googleapis.com/css?family=M+PLUS+1p:400,700&display=swap', array('reboot'), filemtime(get_template_directory() . '/style.css'));
+	wp_enqueue_style('main', get_stylesheet_uri(), array('reboot', 'mplus-webfont'), filemtime(get_template_directory() . '/style.css'));
 
-	wp_enqueue_script( 'passive', get_template_directory_uri() . '/js/jquery.passive.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/jquery.passive.js' ), false );
-	wp_enqueue_script( 'vticker', get_template_directory_uri() . '/js/jquery.vticker.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/jquery.vticker.min.js' ), false );
+	wp_enqueue_script('passive', get_template_directory_uri() . '/js/jquery.passive.js', array('jquery'), filemtime(get_template_directory() . '/js/jquery.passive.js'), false);
+	wp_enqueue_script('vticker', get_template_directory_uri() . '/js/jquery.vticker.min.js', array('jquery'), filemtime(get_template_directory() . '/js/jquery.vticker.min.js'), false);
 }
-add_action( 'wp_enqueue_scripts', 'sha_load_scripts' );
+add_action('wp_enqueue_scripts', 'sha_load_scripts');
 
 /**
  * Theme customizer.
  *
  * @param Object $wp_customize customizer instance.
  */
-function sha_theme_customize_register( $wp_customize ) {
+function sha_theme_customize_register($wp_customize)
+{
 	$wp_customize->add_section(
 		'sha_theme_favicon_section',
 		array(
@@ -57,7 +61,7 @@ function sha_theme_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'favicon' );
+	$wp_customize->add_setting('favicon');
 
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
@@ -72,7 +76,7 @@ function sha_theme_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'apple-icon' );
+	$wp_customize->add_setting('apple-icon');
 
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
@@ -95,7 +99,7 @@ function sha_theme_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'logo_img' );
+	$wp_customize->add_setting('logo_img');
 
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
@@ -140,7 +144,7 @@ function sha_theme_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'ogp_img' );
+	$wp_customize->add_setting('ogp_img');
 
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
@@ -155,7 +159,7 @@ function sha_theme_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'ogp_twaccount' );
+	$wp_customize->add_setting('ogp_twaccount');
 
 	$wp_customize->add_control(
 		new WP_Customize_Control(
@@ -171,7 +175,7 @@ function sha_theme_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'ogp_fb' );
+	$wp_customize->add_setting('ogp_fb');
 
 	$wp_customize->add_control(
 		new WP_Customize_Control(
@@ -197,16 +201,16 @@ function sha_theme_customize_register( $wp_customize ) {
 
 	$post_types = array_diff(
 		get_post_types(
-			array( 'public' => true )
+			array('public' => true)
 		),
 		cptui_reserved_post_types(),
-		array( 'forum', 'topic', 'reply' )
+		array('forum', 'topic', 'reply')
 	);
 
-	foreach ( $post_types as $type ) {
-		$post_type_obj = get_post_type_object( $type );
+	foreach ($post_types as $type) {
+		$post_type_obj = get_post_type_object($type);
 
-		$wp_customize->add_setting( $type . '-archive-img' );
+		$wp_customize->add_setting($type . '-archive-img');
 
 		$wp_customize->add_control(
 			new WP_Customize_Image_Control(
@@ -221,15 +225,15 @@ function sha_theme_customize_register( $wp_customize ) {
 			)
 		);
 	}
-
 }
-add_action( 'customize_register', 'sha_theme_customize_register' );
+add_action('customize_register', 'sha_theme_customize_register');
 
 /**
  * Return logo img from theme customizer.
  */
-function sha_get_the_logo_img_url() {
-	return esc_url( get_theme_mod( 'logo_img' ) );
+function sha_get_the_logo_img_url()
+{
+	return esc_url(get_theme_mod('logo_img'));
 }
 
 /**
@@ -237,44 +241,47 @@ function sha_get_the_logo_img_url() {
  *
  * @param String $title Title string.
  */
-function sha_archive_title( $title ) {
-	if ( is_category() ) {
-		$title = single_cat_title( '', false );
-	} elseif ( is_tag() ) {
-		$title = single_tag_title( '', false );
-	} elseif ( is_tax() ) {
-		$title = single_term_title( '', false );
-	} elseif ( is_post_type_archive() ) {
-		$title = post_type_archive_title( '', false );
-	} elseif ( is_date() ) {
-		$title = get_the_time( '<time datetime="Y-m">Y年n月</time>' );
-	} elseif ( is_search() ) {
-		$title = '検索結果：' . esc_html( get_search_query( false ) );
-	} elseif ( is_404() ) {
+function sha_archive_title($title)
+{
+	if (is_category()) {
+		$title = single_cat_title('', false);
+	} elseif (is_tag()) {
+		$title = single_tag_title('', false);
+	} elseif (is_tax()) {
+		$title = single_term_title('', false);
+	} elseif (is_post_type_archive()) {
+		$title = post_type_archive_title('', false);
+	} elseif (is_date()) {
+		$title = get_the_time('<time datetime="Y-m">Y年n月</time>');
+	} elseif (is_search()) {
+		$title = '検索結果：' . esc_html(get_search_query(false));
+	} elseif (is_404()) {
 		$title = '「404」ページが見つかりません';
 	}
 	return $title;
 };
-add_filter( 'get_the_archive_title', 'sha_archive_title' );
+add_filter('get_the_archive_title', 'sha_archive_title');
 
 /**
  * Favicon.
  */
-function sha_favicon_insert() {
-	if ( get_theme_mod( 'favicon' ) ) {
-		echo '<link rel="icon" type="image/png" href="' . esc_url( get_theme_mod( 'favicon' ) ) . '">';
+function sha_favicon_insert()
+{
+	if (get_theme_mod('favicon')) {
+		echo '<link rel="icon" type="image/png" href="' . esc_url(get_theme_mod('favicon')) . '">';
 	}
-	if ( get_theme_mod( 'apple-icon' ) ) {
-		echo '<link rel="apple-touch-icon" sizes="512x512" href="' . esc_url( get_theme_mod( 'apple-icon' ) ) . '">';
+	if (get_theme_mod('apple-icon')) {
+		echo '<link rel="apple-touch-icon" sizes="512x512" href="' . esc_url(get_theme_mod('apple-icon')) . '">';
 	}
 }
 
-add_action( 'wp_head', 'sha_favicon_insert' );
+add_action('wp_head', 'sha_favicon_insert');
 
 /**
  * Add nav menu.
  */
-function sha_register_menus() {
+function sha_register_menus()
+{
 	register_nav_menus(
 		array(
 			'global'    => 'ヘッダーグローバルナビ',
@@ -282,10 +289,10 @@ function sha_register_menus() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'sha_register_menus' );
+add_action('after_setup_theme', 'sha_register_menus');
 
 
-if ( function_exists( 'register_sidebar' ) ) {
+if (function_exists('register_sidebar')) {
 
 	register_sidebar(
 		array(
@@ -351,16 +358,17 @@ if ( function_exists( 'register_sidebar' ) ) {
  *
  * @param Object $args Plugin object.
  */
-function discord_ctz_post_request_args( $args ) {
-	if ( empty( $args['body'] ) ) {
+function discord_ctz_post_request_args($args)
+{
+	if (empty($args['body'])) {
 		return $args;
 	}
 
-	$body = json_decode( $args['body'], true );
+	$body = json_decode($args['body'], true);
 
 	// Validate data. Add your own validation to change only this form.
-	if ( $body['checkbox-recruitagreement'] ) {
-		if ( $body['checkbox-recruitagreement'] ) {
+	if ($body['checkbox-recruitagreement']) {
+		if ($body['checkbox-recruitagreement']) {
 			$agreement = '同意する';
 		} else {
 			$agreement = '同意しない';
@@ -391,6 +399,14 @@ function discord_ctz_post_request_args( $args ) {
 							'value' => $body['your-discordtag'],
 						),
 						array(
+							'name'  => 'Twitter',
+							'value' => $body['your-twitter'],
+						),
+						array(
+							'name'  => 'YouTube',
+							'value' => $body['your-youtube'],
+						),
+						array(
 							'name'  => '意気込み',
 							'value' => $body['your-message'],
 						),
@@ -402,7 +418,7 @@ function discord_ctz_post_request_args( $args ) {
 				),
 			),
 		);
-	} elseif ( $body['acceptance-contact'] ) {
+	} elseif ($body['acceptance-contact']) {
 		$discord_body = array(
 			'content' => 'お問い合わせが届きました。',
 			'embeds'  => array(
@@ -431,16 +447,16 @@ function discord_ctz_post_request_args( $args ) {
 				),
 			),
 		);
-	} elseif ( empty( $body ) || empty( $body['your-name'] ) || empty( $body['your-discordtag'] ) || empty( $body['your-email'] ) || empty( $body['your-message'] ) ) {
+	} elseif (empty($body) || empty($body['your-name']) || empty($body['your-discordtag']) || empty($body['your-email']) || empty($body['your-message'])) {
 		return $args;
 	}
 
-	$args['body'] = wp_json_encode( $discord_body );
+	$args['body'] = wp_json_encode($discord_body);
 
 	return $args;
 }
 
-add_filter( 'ctz_post_request_args', 'discord_ctz_post_request_args' );
+add_filter('ctz_post_request_args', 'discord_ctz_post_request_args');
 
 /**
  * Add redirection to home when login.
@@ -448,11 +464,12 @@ add_filter( 'ctz_post_request_args', 'discord_ctz_post_request_args' );
  * @param String $redirect_to Redirect URL.
  * @return String $redirect_to Redirect URL.
  */
-function sha_login_redirect( $redirect_to ) {
-	$redirect_to = home_url( '/' );
+function sha_login_redirect($redirect_to)
+{
+	$redirect_to = home_url('/');
 	return $redirect_to;
 }
-add_action( 'login_redirect', 'sha_login_redirect' );
+add_action('login_redirect', 'sha_login_redirect');
 
 /**
  * Add redirection to home when logout.
@@ -460,50 +477,52 @@ add_action( 'login_redirect', 'sha_login_redirect' );
  * @param String $redirect_to Redirect URL.
  * @return String $redirect_to Redirect URL.
  */
-function sha_logout_redirect( $redirect_to ) {
-	$redirect_to = home_url( '/' );
+function sha_logout_redirect($redirect_to)
+{
+	$redirect_to = home_url('/');
 	return $redirect_to;
 }
-add_action( 'logout_redirect', 'sha_logout_redirect' );
+add_action('logout_redirect', 'sha_logout_redirect');
 
 /**
  * Function to get the archive title.
  */
-function sha_get_archive_title() {
+function sha_get_archive_title()
+{
 	// アーカイブページじゃない場合、 false を返す.
-	if ( ! is_archive() ) {
+	if (!is_archive()) {
 		return false;
 	}
 
 	// 日付アーカイブページなら.
-	if ( is_date() ) {
-		if ( is_year() ) {
-			$date_name = get_query_var( 'year' ) . '年';
-		} elseif ( is_month() ) {
-			$date_name = get_query_var( 'year' ) . '年' . get_query_var( 'monthnum' ) . '月';
+	if (is_date()) {
+		if (is_year()) {
+			$date_name = get_query_var('year') . '年';
+		} elseif (is_month()) {
+			$date_name = get_query_var('year') . '年' . get_query_var('monthnum') . '月';
 		} else {
-			$date_name = get_query_var( 'year' ) . '年' . get_query_var( 'monthnum' ) . '月' . get_query_var( 'day' ) . '日';
+			$date_name = get_query_var('year') . '年' . get_query_var('monthnum') . '月' . get_query_var('day') . '日';
 		}
 
 		// 日付アーカイブページかつ、投稿タイプアーカイブページでもある場合.
-		if ( is_post_type_archive() ) {
-			return $date_name . 'の' . post_type_archive_title( '', false );
+		if (is_post_type_archive()) {
+			return $date_name . 'の' . post_type_archive_title('', false);
 		}
 		return $date_name;
 	}
 
 	// 投稿タイプのアーカイブページなら.
-	if ( is_post_type_archive() ) {
-		return post_type_archive_title( '', false );
+	if (is_post_type_archive()) {
+		return post_type_archive_title('', false);
 	}
 
 	// 投稿者アーカイブページなら.
-	if ( is_author() ) {
+	if (is_author()) {
 		return '投稿者' . get_queried_object()->data->display_name;
 	}
 
 	// それ以外(カテゴリ・タグ・タクソノミーアーカイブページ).
-	return single_term_title( '', false );
+	return single_term_title('', false);
 }
 
 /**
@@ -511,7 +530,7 @@ function sha_get_archive_title() {
  */
 add_filter(
 	'web_app_manifest',
-	function( $manifest ) {
+	function ($manifest) {
 		$manifest['icons']      = array(
 			array(
 				'src'     => get_template_directory_uri() . '/images/pwa-icon.png',
@@ -535,4 +554,4 @@ add_filter(
 /**
  * Remove admin bar from frontend.
  */
-add_filter( 'show_admin_bar', 'is_blog_admin' );
+add_filter('show_admin_bar', 'is_blog_admin');
