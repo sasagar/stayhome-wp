@@ -1180,6 +1180,13 @@ body.bbpress .forum-content-header .container ul li + li {
   }
 }
 
+#bbpress-forums ul.status-closed {
+  color: #008664;
+}
+#bbpress-forums ul.status-closed a {
+  color: #008664;
+}
+
 @media (max-width: 519px) {
   div.wpgdprc-consent-bar div.wpgdprc-consent-bar__content {
     -webkit-box-orient: vertical;
@@ -1193,5 +1200,4 @@ body.bbpress .forum-content-header .container ul li + li {
   div.wpgdprc-consent-bar div.wpgdprc-consent-bar__column + div.wpgdprc-consent-bar__column {
     margin-top: 10px;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
