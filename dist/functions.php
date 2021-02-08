@@ -387,19 +387,19 @@ function discord_ctz_post_request_args( $args ) {
 						),
 						array(
 							'name'  => 'Discordユーザー名',
-							'value' => $body['your-discordtag'],
+							'value' => $body['your-discordtag'] ? $body['your-discordtag'] : '<空欄>',
 						),
 						array(
 							'name'  => 'Twitter',
-							'value' => $body['your-twitter'],
+							'value' => $body['your-twitter'] ? $body['your-twitter'] : '<空欄>',
 						),
 						array(
 							'name'  => 'YouTube',
-							'value' => $body['your-youtube'],
+							'value' => $body['your-youtube'] ? $body['your-youtube'] : '<空欄>',
 						),
 						array(
 							'name'  => '意気込み',
-							'value' => $body['your-message'],
+							'value' => $body['your-message'] ? $body['your-message'] : '<空欄>',
 						),
 						array(
 							'name'  => '規約同意',
@@ -428,7 +428,7 @@ function discord_ctz_post_request_args( $args ) {
 						),
 						array(
 							'name'  => 'タイトル',
-							'value' => $body['your-subject'],
+							'value' => $body['your-subject'] ? $body['your-subject'] : '<空欄>',
 						),
 						array(
 							'name'  => '本文',
