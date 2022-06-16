@@ -50,3 +50,15 @@ body.bbpress {
         }
     }
 }
+
+#bbpress-forums {
+    ul{
+        &.status-closed {
+            color: $green;
+
+            a {
+                color: $green;
+            }
+        }
+    }
+}
