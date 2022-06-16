@@ -11,7 +11,7 @@
  * @author     SASAGAWA Kiyoshi <sasagawa@kent-and-co.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       https://stayhome.bktsk.com/
- * @since      1.0.0
+ * @since      1.1.0
  */
 
 // theme supports.
@@ -463,26 +463,34 @@ add_filter('ctz_post_request_args', 'discord_ctz_post_request_args');
  *
  * @param String $redirect_to Redirect URL.
  * @return String $redirect_to Redirect URL.
+ * @since 1.0.0
+ * @since 1.1.0 Change action hook.
  */
 function sha_login_redirect($redirect_to)
 {
 	$redirect_to = home_url('/');
-	return $redirect_to;
+	// return $redirect_to;
+	wp_redirect( $redirect_to );
+	exit();
 }
-add_action('login_redirect', 'sha_login_redirect');
+add_action('wp_login', 'sha_login_redirect');
 
 /**
  * Add redirection to home when logout.
  *
  * @param String $redirect_to Redirect URL.
  * @return String $redirect_to Redirect URL.
+ * @since 1.0.0
+ * @since 1.1.0 Change action hook.
  */
 function sha_logout_redirect($redirect_to)
 {
 	$redirect_to = home_url('/');
-	return $redirect_to;
+	// return $redirect_to;
+	wp_redirect( $redirect_to );
+	exit();
 }
-add_action('logout_redirect', 'sha_logout_redirect');
+add_action('wp_logout', 'sha_logout_redirect');
 
 /**
  * Function to get the archive title.

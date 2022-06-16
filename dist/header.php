@@ -72,11 +72,11 @@
 					<?php
 					if ( is_user_logged_in() ) {
 						?>
-						<a href="<?php echo esc_url( home_url( '/logout/' ) ); ?>" class="login hidesp hidetab">ログアウト</a>
+						<a href="<?php echo esc_url( home_url( '/wp-login.php?action=logout' ) ); ?>" class="login hidesp hidetab">ログアウト</a>
 						<?php
 					} else {
 						?>
-						<a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="login hidesp hidetab">社員ログイン</a>
+						<a href="<?php echo esc_url( home_url( '/wp-login.php' ) ); ?>" class="login hidesp hidetab">社員ログイン</a>
 						<?php
 					}
 					?>
