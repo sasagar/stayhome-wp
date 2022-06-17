@@ -16,31 +16,33 @@
 ?>
 <!doctype html>
 <html lang="<?php bloginfo( 'language' ); ?>">
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<?php wp_head(); ?>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
-	<header>
-		<div class="container">
-			<?php
+    <header>
+        <div class="container">
+            <?php
 			if ( is_front_page() || is_home() ) {
 				echo '<h1>';
 			} else {
 				echo '<h2>';
 			}
 			?>
-				<a href="<?php echo esc_url( home_url() ); ?>">
-					<?php
+            <a href="<?php echo esc_url( home_url() ); ?>">
+                <?php
 					if ( sha_get_the_logo_img_url() ) {
 						echo '<img src="' . esc_url( sha_get_the_logo_img_url() ) . '" alt="' . esc_html( get_bloginfo( 'name' ) ) . '" class="mainlogo">';
 					} else {
 						bloginfo( 'name' );
 					}
 					?>
-				</a>
-				<?php
+            </a>
+            <?php
 				$flag = get_option( 'va_alliance' );
 				if ( $flag['chk'] ) {
 					echo '<div class="vaj-logo">';
@@ -48,17 +50,17 @@
 					echo '</div>';
 				}
 				?>
-			<?php
+            <?php
 			if ( is_front_page() || is_home() ) {
 				echo '</h1>';
 			} else {
 				echo '</h2>';
 			}
 			?>
-			<div class="header-l">
-				<div class="left-upper">
-					<ul class="language-switcher hidesp hidetab">
-						<?php
+            <div class="header-l">
+                <div class="left-upper">
+                    <ul class="language-switcher hidesp hidetab">
+                        <?php
 						pll_the_languages(
 							array(
 								'show_flags'    => 1,
@@ -68,20 +70,20 @@
 							)
 						);
 						?>
-					</ul>
-					<?php
+                    </ul>
+                    <?php
 					if ( is_user_logged_in() ) {
 						?>
-						<a href="<?php echo esc_url( home_url( '/wp-login.php?action=logout' ) ); ?>" class="login hidesp hidetab">ログアウト</a>
-						<?php
+                    <a href="<?php echo esc_url( home_url( '/logout/' ) ); ?>" class="login hidesp hidetab">ログアウト</a>
+                    <?php
 					} else {
 						?>
-						<a href="<?php echo esc_url( home_url( '/wp-login.php' ) ); ?>" class="login hidesp hidetab">社員ログイン</a>
-						<?php
+                    <a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="login hidesp hidetab">社員ログイン</a>
+                    <?php
 					}
 					?>
-				</div>
-				<?php
+                </div>
+                <?php
 				wp_nav_menu(
 					array(
 						'theme_location'  => 'global',
@@ -89,9 +91,9 @@
 					)
 				);
 				?>
-				<div class="sp-menu-global-container hidepc">
-					<div class="menu-button" id="sp-menu-toggle"></div>
-					<?php
+                <div class="sp-menu-global-container hidepc">
+                    <div class="menu-button" id="sp-menu-toggle"></div>
+                    <?php
 					wp_nav_menu(
 						array(
 							'theme_location'  => 'sp-global',
@@ -99,15 +101,15 @@
 						)
 					);
 					?>
-				</div>
-				<script>
-					jQuery(function() {
-						jQuery('#sp-menu-toggle').click(function() {
-							jQuery(this).toggleClass('openlink');
-							jQuery(this).next('.sp-menu-global-menu').slideToggle();
-						});
-					});
-				</script>
-			</div>
-		</div>
-	</header>
+                </div>
+                <script>
+                jQuery(function() {
+                    jQuery('#sp-menu-toggle').click(function() {
+                        jQuery(this).toggleClass('openlink');
+                        jQuery(this).next('.sp-menu-global-menu').slideToggle();
+                    });
+                });
+                </script>
+            </div>
+        </div>
+    </header>

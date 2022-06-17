@@ -1,0 +1,104 @@
+.tml-action-login {
+  .content-container {
+    .container {
+      max-width: 350px;
+      color: $black;
+
+      article {
+        .tml {
+          .tml-field-wrap {
+            margin-bottom: 1.2rem;
+          }
+          form {
+            * {
+              &:focus {
+                outline: none;
+              }
+            }
+            #user_login,
+            #user_pass {
+              box-sizing: border-box;
+              padding: 0.7rem 1.2rem;
+              appearance: none;
+              border: solid 2px rgba($green, 0.5);
+              border-radius: 0.5rem;
+              transition: border 0.5s;
+              transition: filter 0.5s;
+              &:focus {
+                border-color: $green;
+                filter: drop-shadow(0 0 10px lighten($green, 20%));
+              }
+            }
+            .tml-rememberme-wrap {
+              display: flex;
+              align-items: center;
+              .tml-checkbox {
+                box-sizing: border-box;
+                appearance: none;
+                width: 60px;
+                height: 34px;
+                background-color: $white;
+                border: solid 2px rgba($green, 0.5);
+                border-radius: 17px;
+                box-shadow: 0 0 2px 2px rgba($black, 0.15) inset;
+                transition: background-color 0.3s;
+                position: relative;
+                cursor: pointer;
+                transition: filter 0.5s;
+                &::before {
+                  position: absolute;
+                  display: block;
+                  content: "";
+                  background-color: $white;
+                  width: 22px;
+                  height: 22px;
+                  border-radius: 50%;
+                  top: 4px;
+                  left: 6px;
+                  box-shadow: 0 0 2px 2px rgba($black, 0.15);
+                  transition: left 0.3s;
+                }
+                &:checked {
+                  background-color: lighten($green, 20%);
+                  &::before {
+                    left: 32px;
+                  }
+                }
+                &:focus {
+                  border-color: $green;
+                  filter: drop-shadow(0 0 10px lighten($green, 20%));
+                }
+              }
+              .tml-label {
+                margin-left: 1rem;
+              }
+            }
+            .tml-button {
+              box-sizing: border-box;
+              width: 100%;
+              height: 3rem;
+              appearance: none;
+              background-color: $blue;
+              border: solid 2px darken($blue, 20%);
+              border-radius: 0.5rem;
+              transition: border 0.5s;
+              transition: filter 0.5s;
+              &:focus {
+                border-color: $green;
+                filter: drop-shadow(0 0 10px lighten($green, 20%));
+              }
+            }
+          }
+          .tml-links {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 2rem;
+            li {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
