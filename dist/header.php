@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Header.php
  *
@@ -14,11 +15,29 @@
  */
 
 ?>
+
+<?php
+/**
+ * Redirect non-logged-in-user to guidance page
+ * @since 1.1.1
+ */
+#フォーラムの場合、ログインしてなかったら、ログインしろと言う。
+if ((is_post_type_archive('forum') || is_tax('forums') || is_singular('forum') || is_singular('topic')) && !is_user_logged_in()) :
+
+	// echo "このページは会員限定です。会員の方が閲覧するためには、ログインが必要です!";
+	wp_redirect( 'https://stayhomeairlines.com/about-employees-only-forum/', 302 );
+	// get_footer();
+	exit;
+
+endif;
+
+?>
+
 <!doctype html>
-<html lang="<?php bloginfo( 'language' ); ?>">
+<html lang="<?php bloginfo('language'); ?>">
 
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <?php wp_head(); ?>
 </head>
@@ -27,31 +46,31 @@
     <header>
         <div class="container">
             <?php
-			if ( is_front_page() || is_home() ) {
+			if (is_front_page() || is_home()) {
 				echo '<h1>';
 			} else {
 				echo '<h2>';
 			}
 			?>
-            <a href="<?php echo esc_url( home_url() ); ?>">
+            <a href="<?php echo esc_url(home_url()); ?>">
                 <?php
-					if ( sha_get_the_logo_img_url() ) {
-						echo '<img src="' . esc_url( sha_get_the_logo_img_url() ) . '" alt="' . esc_html( get_bloginfo( 'name' ) ) . '" class="mainlogo">';
-					} else {
-						bloginfo( 'name' );
-					}
-					?>
-            </a>
-            <?php
-				$flag = get_option( 'va_alliance' );
-				if ( $flag['chk'] ) {
-					echo '<div class="vaj-logo">';
-					echo '<img src="' . esc_url( get_template_directory_uri() ) . '/images/VA-JPN.svg" alt="A member of Virtual Airlines Japan" class="vaj-logo-img">';
-					echo '</div>';
+				if (sha_get_the_logo_img_url()) {
+					echo '<img src="' . esc_url(sha_get_the_logo_img_url()) . '" alt="' . esc_html(get_bloginfo('name')) . '" class="mainlogo">';
+				} else {
+					bloginfo('name');
 				}
 				?>
+            </a>
             <?php
-			if ( is_front_page() || is_home() ) {
+			$flag = get_option('va_alliance');
+			if ($flag['chk']) {
+				echo '<div class="vaj-logo">';
+				echo '<img src="' . esc_url(get_template_directory_uri()) . '/images/VA-JPN.svg" alt="A member of Virtual Airlines Japan" class="vaj-logo-img">';
+				echo '</div>';
+			}
+			?>
+            <?php
+			if (is_front_page() || is_home()) {
 				echo '</h1>';
 			} else {
 				echo '</h2>';
@@ -72,13 +91,13 @@
 						?>
                     </ul>
                     <?php
-					if ( is_user_logged_in() ) {
-						?>
-                    <a href="<?php echo esc_url( home_url( '/logout/' ) ); ?>" class="login hidesp hidetab">ログアウト</a>
+					if (is_user_logged_in()) {
+					?>
+                    <a href="<?php echo esc_url(home_url('/logout/')); ?>" class="login hidesp hidetab">ログアウト</a>
                     <?php
 					} else {
-						?>
-                    <a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="login hidesp hidetab">社員ログイン</a>
+					?>
+                    <a href="<?php echo esc_url(home_url('/login/')); ?>" class="login hidesp hidetab">社員ログイン</a>
                     <?php
 					}
 					?>
